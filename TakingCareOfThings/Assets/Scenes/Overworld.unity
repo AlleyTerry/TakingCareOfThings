@@ -1411,7 +1411,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 7331224504841333526, guid: 77f7a45381a30024a9578e0f455436b3, type: 3}
-  offset: 3
+  offset: 0
+  newitem: {fileID: 0}
+  parentItem: {fileID: 1826508082}
   TopDownCamera: {fileID: 72301200}
 --- !u!4 &609475617
 Transform:
@@ -2716,6 +2718,52 @@ Transform:
   - {fileID: 1945801883}
   m_Father: {fileID: 1103432583}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1826508082
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1826508084}
+  - component: {fileID: 1826508083}
+  m_Layer: 0
+  m_Name: FollowMouse
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1826508083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1826508082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f652dce818474f34ead88217ed1aaef5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: 3
+  TopDownCamera: {fileID: 72301200}
+--- !u!4 &1826508084
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1826508082}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1895543131
 GameObject:
   m_ObjectHideFlags: 3
@@ -2787,7 +2835,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1895543131}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.08734186, y: -0.32846776, z: 0.030521087, w: 0.9399728}
+  m_LocalRotation: {x: 0.08734187, y: -0.32846776, z: 0.03052109, w: 0.9399728}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3517,3 +3565,4 @@ SceneRoots:
   - {fileID: 72301201}
   - {fileID: 1195022599}
   - {fileID: 609475617}
+  - {fileID: 1826508084}

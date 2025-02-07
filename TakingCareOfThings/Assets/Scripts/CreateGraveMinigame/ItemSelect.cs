@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class ItemSelect : MonoBehaviour
 {
     public GameObject item;
     public float offset = 3f;
-    private GameObject newitem;
+    public GameObject newitem;
+    public GameObject parentItem;
 
     public Camera TopDownCamera;
     // Start is called before the first frame update
@@ -18,20 +20,35 @@ public class ItemSelect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (newitem != null)
+        if (Input.GetMouseButtonDown(0) )
         {
-            Vector3 pos = Input.mousePosition;
-            pos.z = offset;
-            newitem.transform.position = TopDownCamera.ScreenToWorldPoint(pos);
+            if (EventSystem.current.IsPointerOverGameObject())
+            {
+                return;
+                
+            }
+            
+            if (newitem != null )
+            {
+                    newitem.GetComponent<Rigidbody>().isKinematic = false;
+                    newitem.transform.SetParent(null);
+            }
+            
+            
         }
     }
     
     public void SelectItem()
     {
-        Vector3 mousePos = Input.mousePosition;
-        mousePos.z = 10;
-        Vector3 worldPos = TopDownCamera.ScreenToWorldPoint(mousePos);
-        Instantiate(item, worldPos, Quaternion.identity);
-        newitem = item;
+        if (newitem != null)
+        {
+            Destroy(newitem.gameObject);
+        }
+        newitem = null;
+        newitem = Instantiate(item, parentItem.transform.position, Quaternion.identity);
+        newitem.transform.SetParent(parentItem.transform);
+        newitem.GetComponent<Rigidbody>().isKinematic = true;
+        
+        
     }
 }

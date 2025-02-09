@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: de8a76c3be5268c47881ea7fbc45faea, type: 3}
-  m_Name: BlackGrave
+  m_Name: BlueGrave
   m_EditorClassIdentifier: 
-  graveName: Onyx
-  graveDescription: A black grave with white trim
-  graveObject: {fileID: 7331224504841333526, guid: 1bd8ee53abd82334e9270d60f48c1458,
+  graveName: Deep Sea
+  graveDescription: Deep blue with black trim
+  graveObject: {fileID: 7331224504841333526, guid: 77f7a45381a30024a9578e0f455436b3,
     type: 3}
-  graveType: 0
+  graveType: 1

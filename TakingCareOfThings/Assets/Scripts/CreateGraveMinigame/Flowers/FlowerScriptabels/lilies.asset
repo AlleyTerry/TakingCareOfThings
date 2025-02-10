@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3228dc343e5fca94691f2d42664f36b9, type: 3}
+  m_Name: lilies
+  m_EditorClassIdentifier: 
+  flowerName: lilies
+  flowerDescription: pure white lilies
+  flowerObject: {fileID: 7058767548041815480, guid: 4605cb60176fc1543b38065974486ac5,
+    type: 3}
+  flowerType: 2

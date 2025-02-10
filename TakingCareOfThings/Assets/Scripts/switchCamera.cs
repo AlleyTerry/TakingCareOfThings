@@ -11,6 +11,7 @@ public class switchCamera : MonoBehaviour
     public GameObject backButton;
     public CinemachineFreeLook cam;
     public GameObject GraveButtons;
+    public GameObject flowerButtonGroup;
 
 
     public GameObject player;
@@ -49,7 +50,7 @@ public class switchCamera : MonoBehaviour
         ThirdPersonCamera.SetActive(false);
         TopDownCamera.SetActive(true);
         tabButton.SetActive(false);
-        backButton.SetActive(true);
+        //backButton.SetActive(true);
         player.GetComponent<PlayerMovement>().enabled = false;
         GraveButtons.SetActive(true);
         
@@ -67,6 +68,7 @@ public class switchCamera : MonoBehaviour
         Camera.main.GetComponent<ThirdPersonMovement>().enabled = true;
         player.GetComponent<PlayerMovement>().enabled = true;
         cam.enabled = true;
+        flowerButtonGroup.SetActive(false);
   
     }
 }

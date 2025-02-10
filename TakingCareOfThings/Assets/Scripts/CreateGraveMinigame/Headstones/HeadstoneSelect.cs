@@ -3,17 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-
-public class ItemSelect : MonoBehaviour
+public class HeadstoneSelect : MonoBehaviour
 {
-    public List<ScriptableObject> graves = new List<ScriptableObject>();
+    public List<ScriptableObject> headstones = new List<ScriptableObject>();
     public GameObject item;
     public float offset = 3f;
     public GameObject newitem;
     public GameObject parentItem;
     public String buttonName;
-    public GameObject graveGroupButtons;
     public GameObject headstoneGroupButtons;
+    public GameObject flowerGroupButtons;
 
     public Camera TopDownCamera;
     // Start is called before the first frame update
@@ -36,8 +35,8 @@ public class ItemSelect : MonoBehaviour
             
             if (newitem != null )
             {
-                    newitem.GetComponent<Rigidbody>().isKinematic = false;
-                    newitem.transform.SetParent(null);
+                newitem.GetComponent<Rigidbody>().isKinematic = false;
+                newitem.transform.SetParent(null);
             }
             
             
@@ -52,11 +51,11 @@ public class ItemSelect : MonoBehaviour
             Destroy(newitem.gameObject);
         }
 
-        foreach (var grave in graves)
+        foreach (var stone in headstones)
         {
-            if (grave.name == buttonName)
+            if (stone.name == buttonName)
             {
-                item = ((ChooseGrave) grave).graveObject;
+                item = ((ChooseHeadstone) stone).headstoneObject;
             }
         }
         
@@ -65,10 +64,11 @@ public class ItemSelect : MonoBehaviour
         newitem.transform.SetParent(parentItem.transform);
         newitem.GetComponent<Rigidbody>().isKinematic = true;
     }
-
-    public void ToHeadstones()
+    
+    public void ToFlowers()
     {
-        graveGroupButtons.SetActive(false);
-        headstoneGroupButtons.SetActive(true);
+        headstoneGroupButtons.SetActive(false);
+        flowerGroupButtons.SetActive(true);
+        
     }
 }

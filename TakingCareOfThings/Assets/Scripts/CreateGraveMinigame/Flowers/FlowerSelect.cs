@@ -4,16 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ItemSelect : MonoBehaviour
+public class FlowerSelect : MonoBehaviour
 {
-    public List<ScriptableObject> graves = new List<ScriptableObject>();
+    public List<ScriptableObject> flowers = new List<ScriptableObject>();
     public GameObject item;
     public float offset = 3f;
     public GameObject newitem;
     public GameObject parentItem;
     public String buttonName;
-    public GameObject graveGroupButtons;
-    public GameObject headstoneGroupButtons;
+   
 
     public Camera TopDownCamera;
     // Start is called before the first frame update
@@ -36,8 +35,8 @@ public class ItemSelect : MonoBehaviour
             
             if (newitem != null )
             {
-                    newitem.GetComponent<Rigidbody>().isKinematic = false;
-                    newitem.transform.SetParent(null);
+                newitem.GetComponent<Rigidbody>().isKinematic = false;
+                newitem.transform.SetParent(null);
             }
             
             
@@ -52,11 +51,11 @@ public class ItemSelect : MonoBehaviour
             Destroy(newitem.gameObject);
         }
 
-        foreach (var grave in graves)
+        foreach (var stone in flowers)
         {
-            if (grave.name == buttonName)
+            if (stone.name == buttonName)
             {
-                item = ((ChooseGrave) grave).graveObject;
+                item = ((ChooseFlowers) stone).flowerObject;
             }
         }
         
@@ -65,10 +64,6 @@ public class ItemSelect : MonoBehaviour
         newitem.transform.SetParent(parentItem.transform);
         newitem.GetComponent<Rigidbody>().isKinematic = true;
     }
-
-    public void ToHeadstones()
-    {
-        graveGroupButtons.SetActive(false);
-        headstoneGroupButtons.SetActive(true);
-    }
+    
+ 
 }

@@ -11,6 +11,16 @@ public class FollowMouse : MonoBehaviour
       {
           pos = Input.mousePosition;
           pos.z = offset;
-          transform.position = Camera.main.ScreenToWorldPoint(pos);
+          
+          transform.position = new Vector3(Mathf.Round(pos.x),
+              Mathf.Round(pos.y),
+              Mathf.Round(pos.z));
+          
+          //transform.position = Camera.main.ScreenToWorldPoint(pos);
+          
+          
+          //transform.position = Vector3(Mathf.Round(currentPos.x),
+             // Mathf.Round(currentPos.y),
+             // Mathf.Round(currentPos.z));
       }
 }

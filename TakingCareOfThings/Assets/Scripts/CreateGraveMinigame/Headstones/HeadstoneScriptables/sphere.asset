@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5774991d19de2274ab3a6b6850bbee86, type: 3}
+  m_Name: sphere
+  m_EditorClassIdentifier: 
+  headstoneName: sphere
+  headstoneDescription: sphere style headstone
+  headstoneObject: {fileID: 3718293239196437689, guid: 93fce6948b14ca84bba9c638a3977c07,
+    type: 3}
+  stoneType: 2

@@ -7,6 +7,8 @@ public class FollowMouseGrave : MonoBehaviour
     Vector3 pos;
     public float offset = 3f;
     public Camera TopDownCamera;
+    
+    
     // Start is called before the first frame update
     void Start()
     {

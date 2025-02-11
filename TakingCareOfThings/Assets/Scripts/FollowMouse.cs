@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FollowMouse : MonoBehaviour
 {
+   
     Vector3 pos;
     public float offset = 3f;
 
@@ -12,15 +13,8 @@ public class FollowMouse : MonoBehaviour
           pos = Input.mousePosition;
           pos.z = offset;
           
-          transform.position = new Vector3(Mathf.Round(pos.x),
-              Mathf.Round(pos.y),
-              Mathf.Round(pos.z));
+          transform.position = transform.position = Camera.main.ScreenToWorldPoint(pos);
           
-          //transform.position = Camera.main.ScreenToWorldPoint(pos);
-          
-          
-          //transform.position = Vector3(Mathf.Round(currentPos.x),
-             // Mathf.Round(currentPos.y),
-             // Mathf.Round(currentPos.z));
+        
       }
 }

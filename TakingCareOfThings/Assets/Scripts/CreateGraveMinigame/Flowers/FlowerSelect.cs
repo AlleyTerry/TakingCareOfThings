@@ -12,9 +12,12 @@ public class FlowerSelect : MonoBehaviour
     public GameObject newitem;
     public GameObject parentItem;
     public String buttonName;
-   
+    public int flowerCount;
+    public GameObject secondFlower;
 
     public Camera TopDownCamera;
+    
+    public List<Transform> snapPoints = new List<Transform>();
     // Start is called before the first frame update
     void Start()
     {
@@ -37,32 +40,59 @@ public class FlowerSelect : MonoBehaviour
             {
                 newitem.GetComponent<Rigidbody>().isKinematic = false;
                 newitem.transform.SetParent(null);
+                SnapToNearestPoint(newitem);
+                newitem.GetComponent<Rigidbody>().isKinematic = true;
+                secondFlower = newitem;
+                newitem = null;
             }
             
             
         }
     }
+    public void SnapToNearestPoint(GameObject item)
+    {
+        Transform closestSnapPoint = null;
+        float closestDistance = Mathf.Infinity;
+        foreach (var snapPoint in snapPoints)
+        {
+            float distance = Vector3.Distance(item.transform.position, snapPoint.position);
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                closestSnapPoint = snapPoint;
+            }
+        }
+
+        if (closestSnapPoint != null)
+        { 
+            item.transform.position = closestSnapPoint.position + new Vector3(0, 0.5f, 0);
+        }
+    }
     
     public void SelectItem()
     {
-        buttonName = EventSystem.current.currentSelectedGameObject.name;
-        if (newitem != null)
+        if (flowerCount <= 1)
         {
-            Destroy(newitem.gameObject);
-        }
-
-        foreach (var stone in flowers)
-        {
-            if (stone.name == buttonName)
+            buttonName = EventSystem.current.currentSelectedGameObject.name;
+            if (newitem != null )
             {
-                item = ((ChooseFlowers) stone).flowerObject;
+                Destroy(newitem.gameObject);
             }
-        }
+
+            foreach (var stone in flowers)
+            {
+                if (stone.name == buttonName)
+                {
+                    item = ((ChooseFlowers) stone).flowerObject;
+                }
+            }
         
-        newitem = null;
-        newitem = Instantiate(item, parentItem.transform.position, Quaternion.identity);
-        newitem.transform.SetParent(parentItem.transform);
-        newitem.GetComponent<Rigidbody>().isKinematic = true;
+            newitem = null;
+            newitem = Instantiate(item, parentItem.transform.position, Quaternion.identity);
+            newitem.transform.SetParent(parentItem.transform);
+            newitem.GetComponent<Rigidbody>().isKinematic = true;
+            
+        }
     }
     
  

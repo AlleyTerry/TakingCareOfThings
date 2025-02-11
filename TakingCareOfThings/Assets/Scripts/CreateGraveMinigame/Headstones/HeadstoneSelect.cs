@@ -13,6 +13,8 @@ public class HeadstoneSelect : MonoBehaviour
     public String buttonName;
     public GameObject headstoneGroupButtons;
     public GameObject flowerGroupButtons;
+    
+    public List<Transform> snapPoints = new List<Transform>();
 
     public Camera TopDownCamera;
     // Start is called before the first frame update
@@ -37,12 +39,32 @@ public class HeadstoneSelect : MonoBehaviour
             {
                 newitem.GetComponent<Rigidbody>().isKinematic = false;
                 newitem.transform.SetParent(null);
+                SnapToNearestPoint(newitem);
+                newitem.GetComponent<Rigidbody>().isKinematic = true;
             }
-            
-            
         }
     }
     
+    
+    public void SnapToNearestPoint(GameObject item)
+    {
+        Transform closestSnapPoint = null;
+        float closestDistance = Mathf.Infinity;
+        foreach (var snapPoint in snapPoints)
+        {
+            float distance = Vector3.Distance(item.transform.position, snapPoint.position);
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                closestSnapPoint = snapPoint;
+            }
+        }
+
+        if (closestSnapPoint != null)
+        { 
+            item.transform.position = closestSnapPoint.position + new Vector3(0, 0.5f, 0);
+        }
+    }
     public void SelectItem()
     {
         buttonName = EventSystem.current.currentSelectedGameObject.name;

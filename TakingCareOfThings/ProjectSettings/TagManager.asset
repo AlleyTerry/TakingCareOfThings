@@ -8,6 +8,7 @@ TagManager:
   - leaf
   - PickUp
   - flower
+  - crack
   layers:
   - Default
   - TransparentFX

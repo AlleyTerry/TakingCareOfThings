@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class LeafCollision : MonoBehaviour
 {
+    public GameObject newCrack;
     public int leafOnStone = 0;
     
     public GameObject ReturnButton;
@@ -17,6 +18,9 @@ public class LeafCollision : MonoBehaviour
     public bool leafsOnStone = false;
     public bool fillHole = false;
     public bool polish = false;
+    public float pickUpRange = 10f;
+
+    
     
     // Start is called before the first frame update
     void Start()
@@ -29,20 +33,43 @@ public class LeafCollision : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (leafOnStone == 0)
-        {
-            leafsOnStone = false;
-            brush.SetActive(false);
-            Debug.Log("no more leaves on stone!");
-            FillHoleGame();
-            PolishGame();
-            EndGame();
-        }
-        else
+        if (leafOnStone > 0)
         {
             ReturnButton.SetActive(false);
             text.text = "Clean the grave!";
         }
+        if (leafOnStone == 0 && leafsOnStone)   
+        {
+            leafsOnStone = false;
+            brush.SetActive(false);
+            //Debug.Log("no more leaves on stone!");
+            FillHoleGame();
+            //PolishGame();
+            //EndGame();
+        }
+        if (Input.GetMouseButtonDown(0))
+        {
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit, pickUpRange))
+            {
+                if (hit.transform.CompareTag("crack"))
+                {
+                    Debug.Log("hit a crack");
+                    Destroy(hit.collider.gameObject);
+                    crackNumber--;
+                }
+            }
+            
+        }
+        if (crackNumber == 0 && fillHole)
+        {
+            fillHole = false;
+            polish = true;
+            PolishGame();
+            //EndGame();
+        }
+        
     }
 
     public void OnCollisionEnter(Collision other)
@@ -70,33 +97,39 @@ public class LeafCollision : MonoBehaviour
         //does this 3 times
         for (int i = 0; i < 3; i++)
         {
-            //for each crack, pick a random point from the list of crack points
-            int randomIndex = UnityEngine.Random.Range(0, crackPoints.Count);
-            //instantiate the crack at the random point
-            Instantiate(crack, crackPoints[randomIndex].position, Quaternion.identity);
-            crackNumber++;
-        }
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit))
+            if (newCrack != null)
             {
-                if (hit.collider.tag == "crack")
+                //choose a random crack point
+                int randomIndex = UnityEngine.Random.Range(0, crackPoints.Count);
+                //if the random index is the same as the index of the last crack, choose a new random index
+                while (crackPoints[randomIndex].transform.childCount > 0)
                 {
-                    Destroy(hit.collider.gameObject);
-                    crackNumber--;
+                    randomIndex = UnityEngine.Random.Range(0, crackPoints.Count);
                 }
+                
+                newCrack = Instantiate(crack, crackPoints[randomIndex].position, Quaternion.identity);
+                newCrack.transform.SetParent(crackPoints[randomIndex]);
+                crackNumber++;
             }
+            else
+            {
+                int randomIndex = UnityEngine.Random.Range(0, crackPoints.Count);
+                newCrack = Instantiate(crack, crackPoints[randomIndex].position, Quaternion.identity);
+                newCrack.transform.SetParent(crackPoints[randomIndex]);
+                crackNumber++;
+            }
+            //for each crack, pick a random point from the list of crack points
+            //instantiate the crack at the random point
             
         }
+
+        
         
     }
     
     public void PolishGame()
     {
-        text.text = "Polishing the stone!";
+        text.text = "Polish the stone!";
     }
     public void EndGame()
     {

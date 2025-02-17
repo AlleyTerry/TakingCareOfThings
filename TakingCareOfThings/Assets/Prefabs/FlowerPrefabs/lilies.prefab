@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 2195590174325498410}
   - component: {fileID: 7693574341788446064}
   - component: {fileID: 2564063861764802325}
+  - component: {fileID: -4383346553492375644}
+  - component: {fileID: -8104222084208703101}
   m_Layer: 0
   m_Name: lilies
   m_TagString: Untagged
@@ -135,3 +137,59 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-4383346553492375644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7058767548041815480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baff8732cd3074ef88b34f9cc487846d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabId: 6937841485669326086
+  localRefs:
+    _Keys:
+    - {fileID: 4176478146660421020}
+    - {fileID: 11500000, guid: baff8732cd3074ef88b34f9cc487846d, type: 3}
+    - {fileID: 11500000, guid: 9cfcc9ceea0bf419cb3bcaf548c2600d, type: 3}
+    - {fileID: 4800000, guid: e6e9a19c3678ded42a3bc431ebef7dbd, type: 3}
+    - {fileID: 4800000, guid: 36e335017ad71d54fbb10842863188ae, type: 3}
+    - {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+    - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - {fileID: -4383346553492375644}
+    - {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+    - {fileID: 7058767548041815480}
+    - {fileID: 5875793793700248945}
+    - {fileID: 2195590174325498410}
+    - {fileID: 7693574341788446064}
+    - {fileID: 2564063861764802325}
+    - {fileID: -8104222084208703101}
+    _Values: 2c2ac6c9cf9e5358bd2177293a4047277ecf78ece0c1b9361ac597b99ecee2786ade9364fc3cbb542269b48e49e6e439df5948551f306352417626851b818115574f57d71857871284c90f75a98e887394aea685350f5e078af014be6301aa5680eb0fed25b991361e5decec0aa61d077fc173fc06f88070
+--- !u!114 &-8104222084208703101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7058767548041815480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cfcc9ceea0bf419cb3bcaf548c2600d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveLayer: 0
+  saveTag: 1
+  saveName: 1
+  saveHideFlags: 1
+  saveActive: 1
+  saveChildren: 0
+  saveDestroyed: 0
+  componentsToSave:
+  - {fileID: 5875793793700248945}
+  - {fileID: 4176478146660421020}
+  - {fileID: 2195590174325498410}
+  - {fileID: 7693574341788446064}
+  - {fileID: 2564063861764802325}

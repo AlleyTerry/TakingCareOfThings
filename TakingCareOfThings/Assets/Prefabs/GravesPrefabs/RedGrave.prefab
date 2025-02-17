@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 2705942630009385209}
   - component: {fileID: -5971722649789307795}
   - component: {fileID: 1272064423754002406}
+  - component: {fileID: -8760089856491788426}
+  - component: {fileID: -4653125471795122910}
   m_Layer: 0
   m_Name: RedGrave
   m_TagString: Untagged
@@ -149,3 +151,64 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grave: {fileID: 11400000, guid: 16b781c2b2cec9c4fbfbfd2427417e2c, type: 2}
+--- !u!114 &-8760089856491788426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7331224504841333526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baff8732cd3074ef88b34f9cc487846d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabId: 3755588642494063349
+  localRefs:
+    _Keys:
+    - {fileID: 3942552602876994351}
+    - {fileID: 11500000, guid: 9cfcc9ceea0bf419cb3bcaf548c2600d, type: 3}
+    - {fileID: 11500000, guid: baff8732cd3074ef88b34f9cc487846d, type: 3}
+    - {fileID: 11500000, guid: 50b4735cfd47d674aa501d38fc895c39, type: 3}
+    - {fileID: 11500000, guid: de8a76c3be5268c47881ea7fbc45faea, type: 3}
+    - {fileID: -8760089856491788426}
+    - {fileID: -5971722649789307795}
+    - {fileID: 1272064423754002406}
+    - {fileID: 2100000, guid: d72fb4ee0c3ba3446a3b95e22c47af9c, type: 2}
+    - {fileID: 4800000, guid: e6e9a19c3678ded42a3bc431ebef7dbd, type: 3}
+    - {fileID: 7331224504841333526}
+    - {fileID: 2705942630009385209}
+    - {fileID: 4800000, guid: 36e335017ad71d54fbb10842863188ae, type: 3}
+    - {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+    - {fileID: -4653125471795122910}
+    - {fileID: 4800000, guid: 650dd9526735d5b46b79224bc6e94025, type: 3}
+    - {fileID: 4223401216927726540}
+    - {fileID: 8416105931736003855}
+    - {fileID: 11400000, guid: 16b781c2b2cec9c4fbfbfd2427417e2c, type: 2}
+    _Values: a2edc62f9e7f9c2489e1123a66252217d22eb5d48bd6677f1af5f3deb61b7d4e6ff93eadfd7235379c59a1bf57c1e751b4cdc1d65142287d0f0652778f10d4798ce15d851f5a2c330ad9d30393407e43db5e2a6c828b92637c5328c9c8b0e6406c14c0a441ef265f07818e1a87d82959febd140d0a735e15f25d956886fc91144501735e16b9443151850a0e2919356e32f54829bac6345c
+--- !u!114 &-4653125471795122910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7331224504841333526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cfcc9ceea0bf419cb3bcaf548c2600d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveLayer: 0
+  saveTag: 1
+  saveName: 1
+  saveHideFlags: 1
+  saveActive: 1
+  saveChildren: 0
+  saveDestroyed: 0
+  componentsToSave:
+  - {fileID: 4223401216927726540}
+  - {fileID: 3942552602876994351}
+  - {fileID: 8416105931736003855}
+  - {fileID: 2705942630009385209}
+  - {fileID: -5971722649789307795}
+  - {fileID: 1272064423754002406}

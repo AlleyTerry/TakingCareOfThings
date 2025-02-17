@@ -7,14 +7,18 @@ using UnityEngine;
 public class LeafCollision : MonoBehaviour
 {
     public GameObject newCrack;
+    public GameObject newStone;
     public int leafOnStone = 0;
     
     public GameObject ReturnButton;
     public TMPro.TextMeshProUGUI text;
     public GameObject brush;
     public List<Transform> crackPoints = new List<Transform>();
+    public List<Transform> stonePoints = new List<Transform>();
     public GameObject crack;
+    public GameObject stone;
     public int crackNumber = 0;
+    public int stoneNumber = 0;
     public bool leafsOnStone = false;
     public bool fillHole = false;
     public bool polish = false;
@@ -59,15 +63,26 @@ public class LeafCollision : MonoBehaviour
                     Destroy(hit.collider.gameObject);
                     crackNumber--;
                 }
+                if (hit.transform.CompareTag("stone"))
+                {
+                    Debug.Log("hit a stone");
+                    Destroy(hit.collider.gameObject);
+                    stoneNumber--;
+                }
             }
             
         }
         if (crackNumber == 0 && fillHole)
         {
             fillHole = false;
-            polish = true;
+            //polish = true;
             PolishGame();
             //EndGame();
+        }
+        if (stoneNumber == 0 && polish)
+        {
+            polish = false;
+            EndGame();
         }
         
     }
@@ -129,7 +144,35 @@ public class LeafCollision : MonoBehaviour
     
     public void PolishGame()
     {
+        polish = true;
         text.text = "Polish the stone!";
+        for (int i = 0; i < 3; i++)
+        {
+            if (newStone != null)
+            {
+                //choose a random crack point
+                int randomIndex = UnityEngine.Random.Range(0, stonePoints.Count);
+                //if the random index is the same as the index of the last crack, choose a new random index
+                while (stonePoints[randomIndex].transform.childCount > 0)
+                {
+                    randomIndex = UnityEngine.Random.Range(0, stonePoints.Count);
+                }
+                
+                newStone = Instantiate(stone, stonePoints[randomIndex].position, Quaternion.identity);
+                newStone.transform.SetParent(stonePoints[randomIndex]);
+                stoneNumber++;
+            }
+            else
+            {
+                int randomIndex = UnityEngine.Random.Range(0, stonePoints.Count);
+                newStone = Instantiate(stone, stonePoints[randomIndex].position, Quaternion.identity);
+                newStone.transform.SetParent(stonePoints[randomIndex]);
+                stoneNumber++;
+            }
+            //for each crack, pick a random point from the list of crack points
+            //instantiate the crack at the random point
+            
+        }
     }
     public void EndGame()
     {

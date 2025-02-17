@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 7058282853295859333}
   - component: {fileID: 5545258398573440187}
   - component: {fileID: 2571619970001652789}
+  - component: {fileID: 4303352932038897541}
+  - component: {fileID: -3315245675474932764}
   m_Layer: 0
   m_Name: SphereHeaadstone
   m_TagString: Untagged
@@ -136,6 +138,69 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4303352932038897541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3718293239196437689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baff8732cd3074ef88b34f9cc487846d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabId: 1895996678048057890
+  localRefs:
+    _Keys:
+    - {fileID: 7439708495457276079}
+    - {fileID: 389004546682933122}
+    - {fileID: 11500000, guid: baff8732cd3074ef88b34f9cc487846d, type: 3}
+    - {fileID: 11500000, guid: 9cfcc9ceea0bf419cb3bcaf548c2600d, type: 3}
+    - {fileID: 4800000, guid: e6e9a19c3678ded42a3bc431ebef7dbd, type: 3}
+    - {fileID: 4800000, guid: 36e335017ad71d54fbb10842863188ae, type: 3}
+    - {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+    - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+    - {fileID: 4303352932038897541}
+    - {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+    - {fileID: 3718293239196437689}
+    - {fileID: 711040556859844077}
+    - {fileID: 7058282853295859333}
+    - {fileID: 5545258398573440187}
+    - {fileID: 2571619970001652789}
+    - {fileID: 7697072071676027181}
+    - {fileID: 4070449373766618353}
+    - {fileID: 8663209974476961892}
+    - {fileID: 2075646201319062148}
+    - {fileID: -3315245675474932764}
+    - {fileID: 2659341686731637375}
+    _Values: afda3d4fa7ace736971bf757ebcba116228b14f0eab6c7680f1114983764e641dc95e3beb9c9fc1291ac7133c0d8214cac76f4c240a7664527bb7ca109f3ce06e45f302f4eff0c17f52caea8b30cb56e054b7bb6108cd81487264474c104273223c2115d819b46037596db5998cdc3547df43874dce2a9042ca24418e36af11787630c8beeaf9568e6f276db1fa11921fa87bd854f81845417670f4ac264f0400caeb2c12ac481710c036b66a184973a
+--- !u!114 &-3315245675474932764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3718293239196437689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cfcc9ceea0bf419cb3bcaf548c2600d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveLayer: 0
+  saveTag: 1
+  saveName: 1
+  saveHideFlags: 1
+  saveActive: 1
+  saveChildren: 0
+  saveDestroyed: 0
+  componentsToSave:
+  - {fileID: 711040556859844077}
+  - {fileID: 7439708495457276079}
+  - {fileID: 7058282853295859333}
+  - {fileID: 5545258398573440187}
+  - {fileID: 2571619970001652789}
 --- !u!1 &8663209974476961892
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,6 +213,7 @@ GameObject:
   - component: {fileID: 389004546682933122}
   - component: {fileID: 2075646201319062148}
   - component: {fileID: 4070449373766618353}
+  - component: {fileID: 2659341686731637375}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -243,3 +309,27 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2659341686731637375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8663209974476961892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cfcc9ceea0bf419cb3bcaf548c2600d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveLayer: 0
+  saveTag: 1
+  saveName: 1
+  saveHideFlags: 1
+  saveActive: 1
+  saveChildren: 0
+  saveDestroyed: 0
+  componentsToSave:
+  - {fileID: 7697072071676027181}
+  - {fileID: 389004546682933122}
+  - {fileID: 2075646201319062148}
+  - {fileID: 4070449373766618353}

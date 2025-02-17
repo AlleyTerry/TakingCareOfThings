@@ -38,6 +38,7 @@ public class MinigamePick : MonoBehaviour
 
     public void flower()
     {
+        ES3AutoSaveMgr.Current.Save();
         SceneManager.LoadScene(1);
         
     }

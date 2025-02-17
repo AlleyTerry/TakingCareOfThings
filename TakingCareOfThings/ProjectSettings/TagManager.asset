@@ -9,6 +9,8 @@ TagManager:
   - PickUp
   - flower
   - crack
+  - Ground
+  - stone
   layers:
   - Default
   - TransparentFX

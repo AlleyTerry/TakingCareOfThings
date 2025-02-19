@@ -13,14 +13,20 @@ public class HeadstoneSelect : MonoBehaviour
     public String buttonName;
     public GameObject headstoneGroupButtons;
     public GameObject flowerGroupButtons;
+    public GameObject MiniGameManager;
+    public TMPro.TextMeshProUGUI score;
+
     
     public List<Transform> snapPoints = new List<Transform>();
 
     public Camera TopDownCamera;
+
+    public String choosenHeadstone;
     // Start is called before the first frame update
     void Start()
     {
-       
+        choosenHeadstone = MiniGameManager.GetComponent<MiniGameManager>().Headstone.name;
+        Debug.Log(choosenHeadstone);
        
     }
 
@@ -89,8 +95,20 @@ public class HeadstoneSelect : MonoBehaviour
     
     public void ToFlowers()
     {
+        TallyUp();
         headstoneGroupButtons.SetActive(false);
         flowerGroupButtons.SetActive(true);
         
+    }
+    
+    public void TallyUp()
+    {
+        if (buttonName == choosenHeadstone)
+        {
+            ScoreManager.instance.score += 1;
+            score.text = "SoulPoints: " + ScoreManager.instance.score;
+            Debug.Log(ScoreManager.instance.score);
+        }
+
     }
 }

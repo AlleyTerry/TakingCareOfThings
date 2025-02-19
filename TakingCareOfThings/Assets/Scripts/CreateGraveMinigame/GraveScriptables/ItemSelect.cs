@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+
+//coffin script
 public class ItemSelect : MonoBehaviour
 {
     public List<ScriptableObject> graves = new List<ScriptableObject>();
@@ -14,14 +16,18 @@ public class ItemSelect : MonoBehaviour
     public String buttonName;
     public GameObject graveGroupButtons;
     public GameObject headstoneGroupButtons;
+    public GameObject MiniGameManager;
+    public TMPro.TextMeshProUGUI score;
 
     public Camera TopDownCamera;
+    public String choosenGrave;
     
     public List<Transform> snapPoints = new List<Transform>();
     // Start is called before the first frame update
     void Start()
     {
-       
+        choosenGrave = MiniGameManager.GetComponent<MiniGameManager>().Grave.name;
+        Debug.Log(choosenGrave);
        
     }
 
@@ -93,7 +99,20 @@ public class ItemSelect : MonoBehaviour
 
     public void ToHeadstones()
     {
+        //check to see if graves are correct,  if so, add a point
+        TallyUp();
         graveGroupButtons.SetActive(false);
         headstoneGroupButtons.SetActive(true);
+    }
+
+    public void TallyUp()
+    {
+        if (buttonName == choosenGrave)
+        {
+            ScoreManager.instance.score += 1;
+            score.text = "SoulPoints: " + ScoreManager.instance.score;
+            Debug.Log(ScoreManager.instance.score);
+        }
+
     }
 }

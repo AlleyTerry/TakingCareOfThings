@@ -19,6 +19,7 @@ public class OrganizingMinigame : MonoBehaviour
     public GameObject DoneDoneButton;
     public GameObject NextNextButton;
     public GameObject ReturnButton;
+    public TextMeshProUGUI score;
    
   
     // Start is called before the first frame update
@@ -61,6 +62,8 @@ public class OrganizingMinigame : MonoBehaviour
         if (itemKey == randomKey)
         {
             blurbText.text = "Correct!";
+            ScoreManager.instance.score += 1;
+            score.text = "SoulPoints: " + ScoreManager.instance.score;
         }
         else
         {

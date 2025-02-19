@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using TMPro;
 
 public class switchCamera : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class switchCamera : MonoBehaviour
     public CinemachineFreeLook cam;
     public GameObject GraveButtons;
     public GameObject flowerButtonGroup;
+    public TextMeshProUGUI score;
 
 
     public GameObject player;
@@ -69,6 +71,7 @@ public class switchCamera : MonoBehaviour
         player.GetComponent<PlayerMovement>().enabled = true;
         cam.enabled = true;
         flowerButtonGroup.SetActive(false);
+//        score.text = "SoulPoints: " + ScoreManager.instance.score;
   
     }
 }

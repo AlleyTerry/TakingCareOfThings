@@ -13,6 +13,7 @@ public class MinigamePick : MonoBehaviour
     public GameObject player;
     public CinemachineFreeLook cam;
     
+    
     // Start is called before the first frame update
     void Start()
     {

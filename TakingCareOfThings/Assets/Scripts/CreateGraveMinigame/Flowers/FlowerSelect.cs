@@ -18,6 +18,7 @@ public class FlowerSelect : MonoBehaviour
     public GameObject flowerButtons;
     public GameObject DoneButtion;
     public TMPro.TextMeshProUGUI finalTxt;
+    public GameObject orderButtions;
 
     public GameObject backButton;
     // public static MiniGameManager instance;
@@ -29,15 +30,18 @@ public class FlowerSelect : MonoBehaviour
     
     public List<Transform> snapPoints = new List<Transform>();
     public GameObject MiniGameManager;
+    public TMPro.TextMeshProUGUI orderText;
+    public TMPro.TextMeshProUGUI orderText2;
 
     // Start is called before the first frame update
     void Start()
     {
         choosenFlower1 = MiniGameManager.GetComponent<MiniGameManager>().Flower1.name;
         Debug.Log(choosenFlower1);
+        orderText.text = choosenFlower1;
         choosenFlower2 = MiniGameManager.GetComponent<MiniGameManager>().Flower2.name;
         Debug.Log(choosenFlower2);
-       
+        orderText2.text = choosenFlower2;
     }
 
     // Update is called once per frame
@@ -113,10 +117,13 @@ public class FlowerSelect : MonoBehaviour
     }
     public void ToEnd()
     {
+        newitem = null;
         TallyUp2();
-        DoneButtion.SetActive(false);
+        //DoneButtion.SetActive(false);
         flowerButtons.SetActive(false);
         backButton.SetActive(true);
+        orderButtions.SetActive(false);
+        
         finalTxt.text ="You got " + ScoreManager.instance.score + " soul points!";
         
     }

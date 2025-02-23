@@ -14,5 +14,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BrushLeaves.unity
     guid: dbc383f72e6f7474a80e84c57d9689d3
+  - enabled: 1
+    path: Assets/Scenes/Ritual.unity
+    guid: 7fe1cf0e297b08140b682015f484488b
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

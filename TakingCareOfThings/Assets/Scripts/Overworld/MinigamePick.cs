@@ -12,6 +12,8 @@ public class MinigamePick : MonoBehaviour
     public GameObject buttons;
     public GameObject player;
     public CinemachineFreeLook cam;
+    public GameObject playerCollider;
+    
     
     
     // Start is called before the first frame update
@@ -27,15 +29,15 @@ public class MinigamePick : MonoBehaviour
         {
             Back();
         }
-    }
-    
-    public void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.tag == "Player")
+        //set up collision
+        if (Input.GetKeyDown(KeyCode.Return) &&
+            gameObject.GetComponent<Collider>().bounds.Contains(playerCollider.transform.position)) 
         {
-          Pause();
+            Pause();
+            
         }
     }
+    
 
     public void flower()
     {
@@ -46,6 +48,7 @@ public class MinigamePick : MonoBehaviour
     
     public void leaves()
     {
+        ES3AutoSaveMgr.Current.Save();
         SceneManager.LoadScene(2);
     }
     

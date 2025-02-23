@@ -34,6 +34,7 @@ public class OrganizingMinigame : MonoBehaviour
         //print(randomNum);
         randomKey = blurbs.Keys.ElementAt(randomNum);
         blurbText.text = blurbs[randomKey];
+        score.text = "SoulPoints: " + ScoreManager.instance.score;
        
     }
 

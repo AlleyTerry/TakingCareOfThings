@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class RitualManager : MonoBehaviour
 {
@@ -28,9 +29,15 @@ public class RitualManager : MonoBehaviour
     public List<TextMeshProUGUI> txtSlots = new List<TextMeshProUGUI>();
     public List<ScriptableObject> playerSymbols = new List<ScriptableObject>();
     
+    
+    public List<ScriptableObject> buddies = new List<ScriptableObject>();
+    public ScriptableObject buddy;
+    
+    
     // Start is called before the first frame update
     void Start()
     {
+        score = ScoreManager.instance.score;
         
     }
 
@@ -123,16 +130,51 @@ public class RitualManager : MonoBehaviour
                     if (((SymbolScriptable)playerSymbols[i]).symbolPrefab.name == ((SymbolScriptable)holdSymbols[i]).symbolPrefab.name)
                     {
                         Debug.Log("right");
-                        score++;
+                        //ScoreManager.instance.score++;
 
                     }
                     else
                     {
                         Debug.Log("wrong");
-                    
+                        score--;
+                        ScoreManager.instance.score--;
+
                     }
                 
             
         }
+        //health is added to the buddy choosen
+        //points are taken away
+        //the scriptable object person looses/ gains health
+
+        for (int j = 0; j < buddies.Count; j++)
+        {
+            //if the buddy name is the same as the buddy in the score manager
+            if (buddies[j].name == ScoreManager.instance.buddy)
+            {
+                buddy = buddies[j];
+                //add all soul points to buddies health
+               
+            }
+        }
+        for (int k = 0; k < score; k++)
+        {
+            ((BuddiesScriptables)buddy).buddyHealth += 1;
+            //take away the soul points from the player
+            ScoreManager.instance.score -= 1;
+                    
+        }
+        
+    }
+
+    public void ReturnToOverworld()
+    {
+        //start a new day
+        ScoreManager.instance.newDayStarted = true;
+        //return to the overworld
+        
+        SceneManager.LoadScene("Overworld");
+        
+        
     }
 }

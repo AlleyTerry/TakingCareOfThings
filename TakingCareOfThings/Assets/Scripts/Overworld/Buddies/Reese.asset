@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84ae1a90806ea1e4699447c34a7e827a, type: 3}
+  m_Name: Reese
+  m_EditorClassIdentifier: 
+  buddyName: Reese
+  buddyDescription: a guy
+  buddyObject: {fileID: 5684335253938572043, guid: cfffb12408c40fc4e9a6187fad1c98a8,
+    type: 3}
+  buddyHealth: 10

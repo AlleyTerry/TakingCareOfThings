@@ -15,6 +15,7 @@ public class HeadstoneSelect : MonoBehaviour
     public GameObject flowerGroupButtons;
     public GameObject MiniGameManager;
     public TMPro.TextMeshProUGUI score;
+    public TMPro.TextMeshProUGUI orderText;
 
     
     public List<Transform> snapPoints = new List<Transform>();
@@ -27,6 +28,7 @@ public class HeadstoneSelect : MonoBehaviour
     {
         choosenHeadstone = MiniGameManager.GetComponent<MiniGameManager>().Headstone.name;
         Debug.Log(choosenHeadstone);
+        orderText.text = choosenHeadstone;
        
     }
 
@@ -95,6 +97,7 @@ public class HeadstoneSelect : MonoBehaviour
     
     public void ToFlowers()
     {
+        newitem = null;
         TallyUp();
         headstoneGroupButtons.SetActive(false);
         flowerGroupButtons.SetActive(true);

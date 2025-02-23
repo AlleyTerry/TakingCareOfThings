@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 
 //coffin script
@@ -18,6 +19,7 @@ public class ItemSelect : MonoBehaviour
     public GameObject headstoneGroupButtons;
     public GameObject MiniGameManager;
     public TMPro.TextMeshProUGUI score;
+    public TMPro.TextMeshProUGUI orderText;
 
     public Camera TopDownCamera;
     public String choosenGrave;
@@ -28,7 +30,9 @@ public class ItemSelect : MonoBehaviour
     {
         choosenGrave = MiniGameManager.GetComponent<MiniGameManager>().Grave.name;
         Debug.Log(choosenGrave);
-       
+        orderText.text = choosenGrave;
+
+
     }
 
     // Update is called once per frame
@@ -49,6 +53,7 @@ public class ItemSelect : MonoBehaviour
                     newitem.transform.SetParent(null);
                     SnapToNearestPoint(newitem);
                     newitem.GetComponent<Rigidbody>().isKinematic = true;
+                    
             }
         }
     }
@@ -66,7 +71,10 @@ public class ItemSelect : MonoBehaviour
             {
                 closestDistance = distance;
                 closestSnapPoint = snapPoint;
+                //this child is the minigame picker trigger
+                snapPoint.GetChild(0).gameObject.SetActive(true);
             }
+           
         }
 
         if (closestSnapPoint != null)
@@ -100,6 +108,7 @@ public class ItemSelect : MonoBehaviour
     public void ToHeadstones()
     {
         //check to see if graves are correct,  if so, add a point
+        newitem = null;
         TallyUp();
         graveGroupButtons.SetActive(false);
         headstoneGroupButtons.SetActive(true);
@@ -112,6 +121,7 @@ public class ItemSelect : MonoBehaviour
             ScoreManager.instance.score += 1;
             score.text = "SoulPoints: " + ScoreManager.instance.score;
             Debug.Log(ScoreManager.instance.score);
+            
         }
 
     }

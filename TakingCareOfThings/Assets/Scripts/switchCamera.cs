@@ -3,17 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class switchCamera : MonoBehaviour
 {
     public GameObject ThirdPersonCamera;
     public GameObject TopDownCamera;
+    public GameObject WideTopDownCamera;
     public GameObject tabButton;
     public GameObject backButton;
     public CinemachineFreeLook cam;
     public GameObject GraveButtons;
     public GameObject flowerButtonGroup;
+    public GameObject ordersButton;
     public TextMeshProUGUI score;
+    public GameObject GraveSelectButtons;
+    public string buttonName;
+    public List<GameObject> gravePoints = new List<GameObject>();
 
 
     public GameObject player;
@@ -41,22 +47,56 @@ public class switchCamera : MonoBehaviour
     {
         ThirdPersonCamera.SetActive(true);
         TopDownCamera.SetActive(false);
+        WideTopDownCamera.SetActive(false);
         backButton.SetActive(false);
         GraveButtons.SetActive(false);
         Back();
         
     }
     
-    public void TopDownCameraSwitch()
+    public void WideTopDownCameraSwitch()
     {
         ThirdPersonCamera.SetActive(false);
-        TopDownCamera.SetActive(true);
+        WideTopDownCamera.SetActive(true);
         tabButton.SetActive(false);
-        //backButton.SetActive(true);
+        GraveSelectButtons.SetActive(true);
         player.GetComponent<PlayerMovement>().enabled = false;
-        GraveButtons.SetActive(true);
+        
         
     }
+    
+    public void TopDownCameraSwitch()
+    {
+        WideTopDownCamera.SetActive(false);
+        TopDownCamera.SetActive(true);
+        tabButton.SetActive(false);
+        GraveSelectButtons.SetActive(false);
+        player.GetComponent<PlayerMovement>().enabled = false;
+        GraveButtons.SetActive(true);
+        ordersButton.SetActive(true);
+        
+    }
+    
+    
+    //function for choosing which grave to switch to
+    public void GravePicker()
+    {
+        //get the name of the button that was pressed
+        buttonName = EventSystem.current.currentSelectedGameObject.name;
+        //go through the grarve points and find the one that matches the button name
+        foreach (var grave in gravePoints)
+        {
+            if (grave.name == buttonName)
+            {
+                //set the top down camera position to the grave point
+                TopDownCamera.transform.position = grave.transform.position;
+            }
+        }
+        //turn the top down camera on and the wide top down camera off
+        TopDownCameraSwitch();
+    }
+    
+    
     
     public void Pause()
     {

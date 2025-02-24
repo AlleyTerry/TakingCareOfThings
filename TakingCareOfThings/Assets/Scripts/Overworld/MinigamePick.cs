@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
@@ -13,6 +14,7 @@ public class MinigamePick : MonoBehaviour
     public GameObject player;
     public CinemachineFreeLook cam;
     public GameObject playerCollider;
+    public bool collided = false;
     
     
     
@@ -29,15 +31,23 @@ public class MinigamePick : MonoBehaviour
         {
             Back();
         }
-        //set up collision
-        if (Input.GetKeyDown(KeyCode.Return) &&
-            gameObject.GetComponent<Collider>().bounds.Contains(playerCollider.transform.position)) 
-        {
+        if (Input.GetKeyDown(KeyCode.Return) && collided && cam.enabled)
+        {   
+            collided = false;
             Pause();
-            
         }
+      
+        
     }
     
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("collided wuth " + other.gameObject.name);
+        collided = true;
+        
+    }
+
 
     public void flower()
     {

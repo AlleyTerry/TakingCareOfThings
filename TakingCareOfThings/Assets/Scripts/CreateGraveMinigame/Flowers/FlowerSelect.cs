@@ -124,15 +124,15 @@ public class FlowerSelect : MonoBehaviour
         backButton.SetActive(true);
         orderButtions.SetActive(false);
         
-        finalTxt.text ="You got " + ScoreManager.instance.score + " soul points!";
+        finalTxt.text ="You got " + ScoreManager.score + " soul points!";
         
     }
     public void TallyUp1()
     {
         if (buttonName == choosenFlower1 && flowerCount == 0)
         {
-            ScoreManager.instance.score += 1;
-            Debug.Log(ScoreManager.instance.score);
+            ScoreManager.score += 1;
+            Debug.Log(ScoreManager.score);
             flowerCount += 1;
             
         }
@@ -143,8 +143,8 @@ public class FlowerSelect : MonoBehaviour
     {
         if (buttonName == choosenFlower2 )
         {
-            ScoreManager.instance.score += 1;
-            Debug.Log(ScoreManager.instance.score);
+            ScoreManager.score += 1;
+            Debug.Log(ScoreManager.score);
             //ToEnd();
         }
 

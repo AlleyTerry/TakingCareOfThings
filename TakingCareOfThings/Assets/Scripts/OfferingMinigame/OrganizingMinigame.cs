@@ -34,7 +34,7 @@ public class OrganizingMinigame : MonoBehaviour
         //print(randomNum);
         randomKey = blurbs.Keys.ElementAt(randomNum);
         blurbText.text = blurbs[randomKey];
-        score.text = "SoulPoints: " + ScoreManager.instance.score;
+        score.text = "SoulPoints: " + ScoreManager.score;
        
     }
 
@@ -63,8 +63,8 @@ public class OrganizingMinigame : MonoBehaviour
         if (itemKey == randomKey)
         {
             blurbText.text = "Correct!";
-            ScoreManager.instance.score += 1;
-            score.text = "SoulPoints: " + ScoreManager.instance.score;
+            ScoreManager.score += 1;
+            score.text = "SoulPoints: " + ScoreManager.score;
         }
         else
         {

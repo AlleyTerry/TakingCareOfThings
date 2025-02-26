@@ -30,6 +30,6 @@ public class MiniGameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        score.text = "SoulPoints: " + ScoreManager.instance.score;
+        score.text = "SoulPoints: " + ScoreManager.score;
     }
 }

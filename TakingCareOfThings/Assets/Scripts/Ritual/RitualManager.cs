@@ -37,7 +37,7 @@ public class RitualManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        score = ScoreManager.instance.score;
+        score = ScoreManager.score;
         
     }
 
@@ -137,7 +137,7 @@ public class RitualManager : MonoBehaviour
                     {
                         Debug.Log("wrong");
                         score--;
-                        ScoreManager.instance.score--;
+                        ScoreManager.score--;
 
                     }
                 
@@ -161,7 +161,7 @@ public class RitualManager : MonoBehaviour
         {
             ((BuddiesScriptables)buddy).buddyHealth += 1;
             //take away the soul points from the player
-            ScoreManager.instance.score -= 1;
+            ScoreManager.score -= 1;
                     
         }
         

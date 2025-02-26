@@ -118,9 +118,9 @@ public class ItemSelect : MonoBehaviour
     {
         if (buttonName == choosenGrave)
         {
-            ScoreManager.instance.score += 1;
-            score.text = "SoulPoints: " + ScoreManager.instance.score;
-            Debug.Log(ScoreManager.instance.score);
+            ScoreManager.score += 1;
+            score.text = "SoulPoints: " + ScoreManager.score;
+            Debug.Log(ScoreManager.score);
             
         }
 

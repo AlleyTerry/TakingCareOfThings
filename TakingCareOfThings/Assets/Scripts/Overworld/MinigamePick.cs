@@ -43,9 +43,15 @@ public class MinigamePick : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("collided wuth " + other.gameObject.name);
+        Debug.Log("collided with " + other.gameObject.name);
         collided = true;
         
+    }
+    
+    private void OnTriggerExit(Collider other)
+    {
+        Debug.Log("exited with " + other.gameObject.name);
+        collided = false;
     }
 
 

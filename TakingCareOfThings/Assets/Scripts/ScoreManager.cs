@@ -8,7 +8,7 @@ public class ScoreManager : MonoBehaviour
     
     public static int score = 0;
     public static ScoreManager instance;
-    public String buddy;
+    public static String buddy;
     public bool newDayStarted = false;
 
     public void Awake()
@@ -16,12 +16,14 @@ public class ScoreManager : MonoBehaviour
         if (instance == null )
         {
             instance = this;
+            DontDestroyOnLoad(gameObject);
+
         }
-        else if (instance != this)
+        else
         {
-            Destroy(gameObject);
+            Destroy(this.gameObject);
+            Debug.Log("Duplicate ScoreManager destroyed.");
         }
-        DontDestroyOnLoad(gameObject);
     }
 
     // Start is called before the first frame update

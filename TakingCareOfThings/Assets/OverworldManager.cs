@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using TMPro;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
@@ -30,9 +31,13 @@ public class OverworldManager : MonoBehaviour
     public GameObject buddy1Object;
     public GameObject buddy2Object;
     public GameObject buddy3Object;
+    public TextMeshProUGUI Reese;
+    public TextMeshProUGUI Rain;
+    public TextMeshProUGUI Skite;
     public Transform point1;
     public Transform point2;
     public Transform point3;
+    public GameObject yesNoButton;
     // Start is called before the first frame update
     void Start()
     {
@@ -60,6 +65,7 @@ public class OverworldManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        SoulPointsUpdate();
         if (Input.GetKeyDown(KeyCode.R))
         {
             StartRitual();
@@ -76,6 +82,14 @@ public class OverworldManager : MonoBehaviour
         }
      
         
+    }
+
+    public void SoulPointsUpdate()
+    {
+        //update the soul points of each buddy
+        Reese.text = "Reese: " + ((BuddiesScriptables)buddy1).buddyHealth;
+        Rain.text = "Rain: " + ((BuddiesScriptables)buddy2).buddyHealth;
+        Skite.text = "Skite: " + ((BuddiesScriptables)buddy3).buddyHealth;
     }
     
     
@@ -96,9 +110,12 @@ public class OverworldManager : MonoBehaviour
         //set the name of the buddy choosen in score manager based off the button pressed
         //go to the ritual scene
         choosenBuddyButton = EventSystem.current.currentSelectedGameObject.name;
-        ScoreManager.instance.buddy = choosenBuddyButton;
-        SceneManager.LoadScene("Ritual");
-        
+        ScoreManager.buddy = choosenBuddyButton;
+        Debug.Log(choosenBuddyButton);
+        yesNoButton.SetActive(true);
+        BuddyChooseButtons.SetActive(false);
+        //SceneManager.LoadScene("Ritual");
+
     }
     
     public void Back()
@@ -116,5 +133,17 @@ public class OverworldManager : MonoBehaviour
         cam.enabled = false; 
         player.GetComponent<PlayerMovement>().enabled = false;
         BuddyChooseButtons.SetActive(true);
+    }
+    
+    public void Yes()
+    {
+        SceneManager.LoadScene("Ritual");
+    }
+
+    public void No()
+    {
+        yesNoButton.SetActive(false);
+        BuddyChooseButtons.SetActive(true);
+        
     }
 }

@@ -32,6 +32,7 @@ public class LeafCollision : MonoBehaviour
         text.text = "Clean the grave!";
         ReturnButton.SetActive(false);
         leafsOnStone = true;
+        //WaitForSeconds wait = new WaitForSeconds(1);
     }
 
     // Update is called once per frame

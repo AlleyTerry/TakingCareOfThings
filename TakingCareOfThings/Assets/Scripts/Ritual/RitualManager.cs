@@ -32,12 +32,29 @@ public class RitualManager : MonoBehaviour
     
     public List<ScriptableObject> buddies = new List<ScriptableObject>();
     public ScriptableObject buddy;
+    public GameObject buddyBody;
     
     
     // Start is called before the first frame update
     void Start()
     {
         score = ScoreManager.score;
+        print(score);
+        print(ScoreManager.buddy);
+        //set buddy to the scriptable object of the buddy in the score manager
+        for (int i = 0; i < buddies.Count; i++)
+        {
+            if (buddies[i].name == ScoreManager.buddy)
+            {
+                buddy = buddies[i];
+            }
+        }
+        //instantiate the buddy object with a rotation of -90, 180, 0
+        
+        buddyBody = Instantiate(((BuddiesScriptables)buddy).buddyObject, new Vector3(0, -7,-10), Quaternion.Euler(-90, 180, 0));
+
+        
+        
         
     }
 
@@ -150,7 +167,7 @@ public class RitualManager : MonoBehaviour
         for (int j = 0; j < buddies.Count; j++)
         {
             //if the buddy name is the same as the buddy in the score manager
-            if (buddies[j].name == ScoreManager.instance.buddy)
+            if (buddies[j].name == ScoreManager.buddy)
             {
                 buddy = buddies[j];
                 //add all soul points to buddies health

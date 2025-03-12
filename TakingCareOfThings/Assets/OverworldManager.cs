@@ -38,6 +38,10 @@ public class OverworldManager : MonoBehaviour
     public Transform point2;
     public Transform point3;
     public GameObject yesNoButton;
+
+
+    public GameObject weedPrefab;
+    public GameObject Weeds;
     // Start is called before the first frame update
     void Start()
     {
@@ -59,7 +63,29 @@ public class OverworldManager : MonoBehaviour
         }
       
         
+        SpawnWeeds();
+
+    }
+
+    public void SpawnWeeds()
+    {
+        //instantiates weeds in random positions within a boundry?
         
+        for (int i = 0; i < 10; i++)
+        {
+            //randomize the position of the weed without choosing the same position as another weed\
+            Vector3 randomPosition = new Vector3(UnityEngine.Random.Range(-10, 10), -0.301f, UnityEngine.Random.Range(5, 17));
+            while (randomPosition == new Vector3(UnityEngine.Random.Range(-10, 10), -0.301f, UnityEngine.Random.Range(5, 17)))
+            {
+                randomPosition = new Vector3(UnityEngine.Random.Range(-10, 10), -0.301f, UnityEngine.Random.Range(5, 17));
+            }
+            
+
+            GameObject weed = Instantiate(weedPrefab, randomPosition, Quaternion.Euler(-90, 0, 0));
+            weed.transform.parent = Weeds.transform;
+                
+            
+        }
     }
 
     // Update is called once per frame

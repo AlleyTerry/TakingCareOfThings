@@ -6,7 +6,8 @@ using Cinemachine;
 using TMPro;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
-
+using Yarn.Unity;
+using UnityEngine.Events;
 public class OverworldManager : MonoBehaviour
 {
     // set the sky box to night
@@ -38,10 +39,19 @@ public class OverworldManager : MonoBehaviour
     public Transform point2;
     public Transform point3;
     public GameObject yesNoButton;
+    
+    
 
 
     public GameObject weedPrefab;
     public GameObject Weeds;
+
+    public UnityEvent GamePaused;
+    public UnityEvent GameUnpaused;
+    
+    public bool firstTimeRitual = true;
+    public bool firstTimeRitualChoose = true;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -94,11 +104,20 @@ public class OverworldManager : MonoBehaviour
         SoulPointsUpdate();
         if (Input.GetKeyDown(KeyCode.R))
         {
-            StartRitual();
+            //StartRitual();
+            FindObjectOfType<DialogueRunner>().StartDialogue("Ritual");
         }
         //if the player is colliding with the ritual board and presses enter make the buddy button active
         if (Input.GetKeyDown(KeyCode.Return) && ritualBoard.GetComponent<Collider>().bounds.Contains(player.transform.position))
         {
+            if (firstTimeRitualChoose)
+            {
+                //play the tutorial dialogue
+                FindObjectOfType<DialogueRunner>().StartDialogue("RitualChoose");
+                firstTimeRitualChoose = false;
+            
+            }
+
             Pause();
         }
 
@@ -119,6 +138,7 @@ public class OverworldManager : MonoBehaviour
     }
     
     
+    [YarnCommand("StartRitual")]
     public void StartRitual()
     {
         //set the sky box to night
@@ -128,7 +148,7 @@ public class OverworldManager : MonoBehaviour
         sun.intensity = 0.25f;
         RenderSettings.skybox = skyboxNight;
         ritualBoard.SetActive(true);
-        
+
     }
 
     public void GoToRitual()
@@ -171,5 +191,21 @@ public class OverworldManager : MonoBehaviour
         yesNoButton.SetActive(false);
         BuddyChooseButtons.SetActive(true);
         
+    }
+
+    [YarnCommand("TruePause")]
+    public void TruePause()
+    {
+        //pause the game without pausing the yarn
+        //Time.timeScale = 0;
+        GamePaused.Invoke();
+    }
+
+    [YarnCommand("Unpause")]
+    public void Unpause()
+    {
+        //unpause the game
+        //Time.timeScale = 1;
+        GameUnpaused.Invoke();
     }
 }

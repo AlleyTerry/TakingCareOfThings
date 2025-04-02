@@ -26,7 +26,8 @@ public class HeadstoneSelect : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        choosenHeadstone = MiniGameManager.GetComponent<MiniGameManager>().Headstone.name;
+        //choose a random headstone from the headstone list
+        choosenHeadstone = ((ChooseHeadstone) headstones[UnityEngine.Random.Range(0, headstones.Count)]).name;
         Debug.Log(choosenHeadstone);
         orderText.text = choosenHeadstone;
        

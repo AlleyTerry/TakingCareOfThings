@@ -4,6 +4,7 @@ using UnityEngine;
 using Cinemachine;
 using TMPro;
 using UnityEngine.EventSystems;
+using Yarn.Unity;
 
 public class switchCamera : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class switchCamera : MonoBehaviour
 
 
     public GameObject player;
+    
+    public bool firstTime = true;
 
 
     public void Update()
@@ -74,6 +77,13 @@ public class switchCamera : MonoBehaviour
         player.GetComponent<PlayerMovement>().enabled = false;
         GraveButtons.SetActive(true);
         ordersButton.SetActive(true);
+        if (firstTime)
+        {
+            //play the tutorial dialogue
+            FindObjectOfType<DialogueRunner>().StartDialogue("GraveTutorial");
+            firstTime = false;
+            
+        }
         
     }
     

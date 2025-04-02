@@ -36,6 +36,8 @@ MonoBehaviour:
     - Assembly-CSharp
     - Assembly-CSharp-firstpass
     - Cinemachine
+    - YarnSpinner.Unity
+    - YarnSpinnerTests.CommandsInAnAssemblyDefinition
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
   autoUpdateReferences: 1

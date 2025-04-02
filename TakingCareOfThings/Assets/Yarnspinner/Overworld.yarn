@@ -1,0 +1,61 @@
+﻿title: StartOverworld
+tags:
+---
+<<TruePause GameManager>>
+Sepp: We need to keep our skeptism down.
+Sepp: The mayor will be over at the end of the day.
+Sepp: We should have something to show for it.
+
+Narrator: us WASD to move. Open the grave camera by pressing TAB.
+Narrator: then click on the grave camera button!
+Narrator: go make those graves!
+
+<<Unpause GameManager>>
+===
+title: GraveTutorial
+tags:
+---
+<<TruePause GameManager>>
+Narrator: The townsfolk will stop by at least once a day with a new grave order.
+Narrator: man... those bodies are really piling up huh...
+Narrator: Well, better for business!
+Narrator: Follow their order in the lower left hand corner to a T!
+Narrator: This will allow you to extrack their soul-
+Narrator: I mean gain experience points!
+<<Unpause GameManager>>
+
+===
+
+title: Ritual
+tags:
+---
+
+Narrator: Your buddies will help with other things around the yard.
+Narrator: but you have to help them out too!
+Narrator: at the end of each day you have to help them.
+Narrator: It's YOUR fault after all!
+Narrator: walk up to the monolith and press ENTER!
+<<StartRitual GameManager>>
+
+
+===
+
+title: RitualChoose
+tags:
+---
+Narrator: Oh geez, you can only save one buddy at a time!
+Narrator: Choose wisely!
+
+===
+
+title:FlowerEnd
+tags:
+---
+Narrator: Great!
+Narrator: But these graves will need upkeep!
+Narrator: Walk up to the grave and press ENTER!
+Narrator: Choose a Minigame to do to extract more soul-
+Narrator: to gain more experience!
+Narrator: Whenever you are done for the day, Press R to end the day!
+
+===

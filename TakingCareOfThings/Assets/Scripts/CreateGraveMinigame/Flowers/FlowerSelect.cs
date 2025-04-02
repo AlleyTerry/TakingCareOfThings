@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-
+using Yarn.Unity;
 
 
 public class FlowerSelect : MonoBehaviour
@@ -33,13 +33,15 @@ public class FlowerSelect : MonoBehaviour
     public TMPro.TextMeshProUGUI orderText;
     public TMPro.TextMeshProUGUI orderText2;
 
+    public bool firstTime = true;
     // Start is called before the first frame update
     void Start()
     {
-        choosenFlower1 = MiniGameManager.GetComponent<MiniGameManager>().Flower1.name;
+        //choose a random flower from the flower list
+        choosenFlower1 = ((ChooseFlowers) flowers[UnityEngine.Random.Range(0, flowers.Count)]).name;
         Debug.Log(choosenFlower1);
         orderText.text = choosenFlower1;
-        choosenFlower2 = MiniGameManager.GetComponent<MiniGameManager>().Flower2.name;
+        choosenFlower2 = ((ChooseFlowers) flowers[UnityEngine.Random.Range(0, flowers.Count)]).name;
         Debug.Log(choosenFlower2);
         orderText2.text = choosenFlower2;
     }
@@ -125,6 +127,14 @@ public class FlowerSelect : MonoBehaviour
         orderButtions.SetActive(false);
         
         finalTxt.text ="You got " + ScoreManager.score + " soul points!";
+
+        if (firstTime)
+        {
+            //play the tutorial dialogue
+            FindObjectOfType<DialogueRunner>().StartDialogue("FlowerEnd");
+            firstTime = false;
+        }
+        
         
     }
     public void TallyUp1()

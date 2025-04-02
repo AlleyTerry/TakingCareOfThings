@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5774991d19de2274ab3a6b6850bbee86, type: 3}
-  m_Name: sphere
+  m_Name: Black
   m_EditorClassIdentifier: 
-  headstoneName: sphere
-  headstoneDescription: sphere style headstone
-  headstoneObject: {fileID: 3718293239196437689, guid: 93fce6948b14ca84bba9c638a3977c07,
+  headstoneName: Black
+  headstoneDescription: cylinder style headstones
+  headstoneObject: {fileID: 3718293239196437689, guid: 7a50c572a570fd7488755157513bb0ee,
     type: 3}
-  stoneType: 2
+  stoneType: 1

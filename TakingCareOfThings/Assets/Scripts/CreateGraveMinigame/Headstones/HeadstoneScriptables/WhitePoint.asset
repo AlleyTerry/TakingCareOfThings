@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5774991d19de2274ab3a6b6850bbee86, type: 3}
-  m_Name: capsule
+  m_Name: WhitePoint
   m_EditorClassIdentifier: 
-  headstoneName: capsule
-  headstoneDescription: capsule style headstone
-  headstoneObject: {fileID: 3718293239196437689, guid: 0897476b462c0db489e34ad7d2c52ea1,
+  headstoneName: WhitePoint
+  headstoneDescription: sphere style headstone
+  headstoneObject: {fileID: 3718293239196437689, guid: 93fce6948b14ca84bba9c638a3977c07,
     type: 3}
-  stoneType: 3
+  stoneType: 2

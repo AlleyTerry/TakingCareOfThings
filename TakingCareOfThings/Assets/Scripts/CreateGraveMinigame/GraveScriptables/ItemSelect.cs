@@ -28,7 +28,8 @@ public class ItemSelect : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        choosenGrave = MiniGameManager.GetComponent<MiniGameManager>().Grave.name;
+        //choose a random grace from the grave list
+        choosenGrave = ((ChooseGrave) graves[UnityEngine.Random.Range(0, graves.Count)]).name;
         Debug.Log(choosenGrave);
         orderText.text = choosenGrave;
 

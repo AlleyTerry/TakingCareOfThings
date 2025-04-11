@@ -5,10 +5,12 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class RitualManager : MonoBehaviour
 {
     public int score = 0;
+    public int usedSoulPoints = 0;
     public GameObject symbolButton;
     public GameObject ritualButton;
     public GameObject returnButton;
@@ -27,6 +29,7 @@ public class RitualManager : MonoBehaviour
     
     public List<ScriptableObject> holdSymbols = new List<ScriptableObject>();
     public List<TextMeshProUGUI> txtSlots = new List<TextMeshProUGUI>();
+    public List<GameObject> imageSlots = new List<GameObject>();
     public List<ScriptableObject> playerSymbols = new List<ScriptableObject>();
     
     
@@ -34,7 +37,9 @@ public class RitualManager : MonoBehaviour
     public ScriptableObject buddy;
     public GameObject buddyBody;
     
-    
+    public GameObject explisionEffectPrefab;
+    public ParticleSystem explosionEffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -63,6 +68,7 @@ public class RitualManager : MonoBehaviour
     {
         if (timerIsRunning)
         {
+            symbolsPanel.SetActive(true);
             timeRemaining -= Time.deltaTime;
             //int seconds = (int)(timeRemaining % 60);
             timerText.text = timeRemaining.ToString("F0");
@@ -72,6 +78,7 @@ public class RitualManager : MonoBehaviour
                 timerIsRunning = false;
                 symbolsGroup.SetActive(true);
                 symbolsPanel.SetActive(false);
+                ritualButton.SetActive(true);
                 PickSymbols();
             }
         }
@@ -80,7 +87,7 @@ public class RitualManager : MonoBehaviour
     public void GatherSymbolsStart()
     {
         symbolButton.SetActive(false);
-        ritualButton.SetActive(true);
+        
         timerIsRunning = true;
         for (int i = 0; i < 3; i++)
         {
@@ -94,6 +101,16 @@ public class RitualManager : MonoBehaviour
                 if (txtSlots[j].text == "")
                 {
                     txtSlots[j].text = ((SymbolScriptable)holdSymbols[i]).symbolName;
+                    break;
+                }
+                
+            }
+            //show the symbol images on screen
+            for (int k = 0; k < imageSlots.Count; k++)
+            {
+                if (imageSlots[k].GetComponent<Image>().sprite == null)
+                {
+                    imageSlots[k].GetComponent<Image>().sprite = ((SymbolScriptable)holdSymbols[i]).symbolImage;
                     break;
                 }
                 
@@ -138,8 +155,8 @@ public class RitualManager : MonoBehaviour
         symbolsGroup.SetActive(false);
         ritualButton.SetActive(false);
         returnButton.SetActive(true);
-
-        timerText.text = "Ritual started";
+        
+        
         //check if the symbols are in the right order comapred to the hold symbols
         for (int i = 0; i < playerSymbols.Count; i++)
         {
@@ -179,13 +196,22 @@ public class RitualManager : MonoBehaviour
             ((BuddiesScriptables)buddy).buddyHealth += 1;
             //take away the soul points from the player
             ScoreManager.score -= 1;
+            usedSoulPoints += 1;
                     
         }
+        //show how many soul points you used
+        timerText.text = "Ritual Completed! You were able to use used " + score + " soul points!";
         
+        //instantiate explosion particle
+        GameObject explosionObject = Instantiate(explisionEffectPrefab, buddyBody.transform.position, Quaternion.identity);
+        explosionEffect = explosionObject.GetComponent<ParticleSystem>();
+        //destroy explosion effect after 2 seconds
+        Destroy(explosionObject.gameObject, 2f);
     }
 
     public void ReturnToOverworld()
     {
+        usedSoulPoints = 0;
         //start a new day
         ScoreManager.instance.newDayStarted = true;
         //return to the overworld

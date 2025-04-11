@@ -40,7 +40,7 @@ public class OverworldManager : MonoBehaviour
     public Transform point3;
     public GameObject yesNoButton;
     
-    
+    public bool firstTime = true;
 
 
     public GameObject weedPrefab;
@@ -49,12 +49,13 @@ public class OverworldManager : MonoBehaviour
     public UnityEvent GamePaused;
     public UnityEvent GameUnpaused;
     
-    public bool firstTimeRitual = true;
+
     public bool firstTimeRitualChoose = true;
     
     // Start is called before the first frame update
     void Start()
     {
+       
         //instantiates the buddies
         buddy1Object = Instantiate(((BuddiesScriptables)buddy1).buddyObject, point1.position, Quaternion.identity);
         buddy2Object = Instantiate(((BuddiesScriptables)buddy2).buddyObject, point2.position, Quaternion.identity);

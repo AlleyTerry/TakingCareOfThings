@@ -1,0 +1,7 @@
+﻿title: RainMinigame
+tags:
+---
+Rain: Hey Sepp!
+Rain: There are some tasks for you to do!
+<<TurnOnButtons Rain(Clone)>>
+===

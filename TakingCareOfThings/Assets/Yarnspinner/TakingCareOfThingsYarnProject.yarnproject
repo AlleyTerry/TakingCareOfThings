@@ -2,7 +2,10 @@
   "projectFileVersion": 2,
   "sourceFiles": [
     "OpeningScript.yarn",
-    "Overworld.yarn"
+    "Overworld.yarn",
+    "OfferingMinigameTutorial.yarn",
+    "SortingMinigame.yarn",
+    "RainInteractions.yarn"
   ],
   "excludeFiles": [
     "**/*~/*"

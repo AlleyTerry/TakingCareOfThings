@@ -11,6 +11,8 @@ TagManager:
   - crack
   - Ground
   - stone
+  - plastic
+  - body
   layers:
   - Default
   - TransparentFX

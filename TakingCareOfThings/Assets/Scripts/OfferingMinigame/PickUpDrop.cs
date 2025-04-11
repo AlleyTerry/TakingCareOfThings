@@ -40,7 +40,7 @@ public class PickUpDrop : MonoBehaviour
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, pickUpRange))
         {
             // Check if the object has the "PickUp" tag
-            if (hit.transform.CompareTag("PickUp"))
+            if (hit.transform.CompareTag("PickUp") || hit.transform.CompareTag("leaf") || hit.transform.CompareTag("body") || hit.transform.CompareTag("plastic"))
             {
                 PickUpObject(hit.transform.gameObject);
             }

@@ -7,7 +7,7 @@ public class SceneChanger : MonoBehaviour
 {
     public void ChangeScene()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("Overworld");
     }
     // Start is called before the first frame update
     void Start()

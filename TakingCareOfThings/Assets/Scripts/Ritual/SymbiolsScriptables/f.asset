@@ -16,3 +16,4 @@ MonoBehaviour:
   symbolDescription: a symbol
   symbolPrefab: {fileID: 6987683708874124140, guid: 83d112036ecb2a94196ba857bd20e67e,
     type: 3}
+  symbolImage: {fileID: 21300000, guid: 07e78721094aa1b40b2021fc9781733a, type: 3}

@@ -1,0 +1,13 @@
+﻿title: MiniGameTutorial
+tags:
+---
+narrator: these lovely people have given you some of the deceased things for an offering.
+narrator: how nice.
+narrator: anyway.
+narrator: you need them.
+narrator: put the correct object in the bowl.
+narrator: the one that matches the blurb they've given about the deceased.
+narrator: then press the done button.
+narrator: and hurry up would ya?
+<<startMinigame GameManager>>
+===

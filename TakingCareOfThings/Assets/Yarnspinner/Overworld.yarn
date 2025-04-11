@@ -1,6 +1,8 @@
 ﻿title: StartOverworld
 tags:
 ---
+<<declare $firstTime = true>>
+
 <<TruePause GameManager>>
 Sepp: We need to keep our skeptism down.
 Sepp: The mayor will be over at the end of the day.
@@ -53,7 +55,10 @@ tags:
 ---
 Narrator: Great!
 Narrator: But these graves will need upkeep!
-Narrator: Walk up to the grave and press ENTER!
+Rain: Sepp! I have something for you!
+Narrator: oh?
+Narrator: Your work is never done yet!
+Narrator: Walk up to Rain and press ENTER!
 Narrator: Choose a Minigame to do to extract more soul-
 Narrator: to gain more experience!
 Narrator: Whenever you are done for the day, Press R to end the day!

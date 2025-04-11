@@ -21,7 +21,7 @@ public class MinigamePick : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        collided = false;
     }
 
     // Update is called once per frame
@@ -33,8 +33,8 @@ public class MinigamePick : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Return) && collided && cam.enabled)
         {   
-            collided = false;
-            Pause();
+            
+            PauseMiniGame();
         }
       
         
@@ -48,24 +48,22 @@ public class MinigamePick : MonoBehaviour
         
     }
     
-    private void OnTriggerExit(Collider other)
-    {
-        Debug.Log("exited with " + other.gameObject.name);
-        collided = false;
-    }
 
 
-    public void flower()
+
+    public void SortingMinigame()
     {
+        buttons.SetActive(false);
         ES3AutoSaveMgr.Current.Save();
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("SortingMinigame");
         
     }
     
-    public void leaves()
+    public void OfferingMinigame()
     {
+        buttons.SetActive(false);
         ES3AutoSaveMgr.Current.Save();
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene("OfferingMinigame");
     }
     
     public void Back()
@@ -76,11 +74,15 @@ public class MinigamePick : MonoBehaviour
         buttons.SetActive(false);
     }
 
-    public void Pause()
+    public void PauseMiniGame()
     {
         Camera.main.GetComponent<ThirdPersonMovement>().enabled = false;
         cam.enabled = false; 
         player.GetComponent<PlayerMovement>().enabled = false;
-        buttons.SetActive(true);
+        if (collided)
+        {
+            buttons.SetActive(true);
+            collided = false;
+        }
     }
 }

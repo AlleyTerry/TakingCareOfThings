@@ -92,7 +92,7 @@ public class OverworldManager : MonoBehaviour
             }
             
 
-            GameObject weed = Instantiate(weedPrefab, randomPosition, Quaternion.Euler(-90, 0, 0));
+            GameObject weed = Instantiate(weedPrefab, randomPosition, Quaternion.identity);
             weed.transform.parent = Weeds.transform;
                 
             

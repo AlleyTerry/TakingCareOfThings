@@ -20,6 +20,7 @@ public class OfferingObjects : ScriptableObject
         adventurous
     }
     public GameObject offeringObject;
+    public string offeringBlurb;
     
     // Start is called before the first frame update
     void Start()

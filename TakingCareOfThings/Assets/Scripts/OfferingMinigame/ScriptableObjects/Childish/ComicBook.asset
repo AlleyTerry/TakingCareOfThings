@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0931e1e76f5a5b74aa581e7e98afb180, type: 3}
+  m_Name: ComicBook
+  m_EditorClassIdentifier: 
+  offeringName: ComicBook
+  offeringDescription: it's a comic book
+  offeringType: 2
+  offeringObject: {fileID: 5127857763336517282, guid: 6609f6d8f6bb06646b4d7c9948ac4f38,
+    type: 3}
+  offeringBlurb: 

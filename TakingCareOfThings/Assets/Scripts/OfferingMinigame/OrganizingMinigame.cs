@@ -11,11 +11,11 @@ public class OrganizingMinigame : MonoBehaviour
 {
     //[SerializeField] private List<GameObject> blurbs = new List<GameObject>();
     public Offering objectNameType;
-    [SerializeField] private Dictionary<string, string> blurbs = new Dictionary<string, string>();
-   [SerializeField ]  private Dictionary<string, string> Childishblurbs = new Dictionary<string, string>();
-    [SerializeField] private Dictionary<string, string> Homebodyblurbs = new Dictionary<string, string>();
-    [SerializeField] private Dictionary<string, string> Outgoingblurbs = new Dictionary<string, string>();
-    [SerializeField] private Dictionary<string, string> Adventurousblurbs = new Dictionary<string, string>();
+    [SerializeField] public Dictionary<string, string> blurbs = new Dictionary<string, string>();
+   [SerializeField ] public Dictionary<string, string> Childishblurbs = new Dictionary<string, string>();
+    [SerializeField] public Dictionary<string, string> Homebodyblurbs = new Dictionary<string, string>();
+    [SerializeField] public Dictionary<string, string> Outgoingblurbs = new Dictionary<string, string>();
+    [SerializeField] public Dictionary<string, string> Adventurousblurbs = new Dictionary<string, string>();
     public TextMeshProUGUI blurbText;
     private string randomKey;
     private string itemKey;
@@ -55,7 +55,7 @@ public class OrganizingMinigame : MonoBehaviour
         {
             blurbs.Add("childish", "They really liked trains...");
             blurbs.Add("childish2", "They were never too old for cartoons...");
-            blurbs.Add("childish3", "He thought he was the biggest joker..."); 
+            blurbs.Add("childish3", "He collected a lot of childish things...I mean who plays with cars anymore"); 
             blurbs.Add("childish4", "His he always had a lolipop in his mouth...");
             
         }
@@ -63,8 +63,8 @@ public class OrganizingMinigame : MonoBehaviour
         {
             blurbs.Add("homebody", "You would never catch them at the club");
             blurbs.Add("homebody2", "Their room was always so cozy");
-            blurbs.Add("homebody3", "They had the best taste in movies");
-            blurbs.Add("homebody4", "You could always count on them for a good reccomendation");
+            blurbs.Add("homebody3", "The best pasteries were the ones from them");
+            blurbs.Add("homebody4", "They've seen like every movie ever");
             
         }
         else if (personalityType == PersonalityType.Outgoing)

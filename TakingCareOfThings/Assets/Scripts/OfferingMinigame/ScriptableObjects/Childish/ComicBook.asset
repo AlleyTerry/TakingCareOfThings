@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ComicBook
   m_EditorClassIdentifier: 
   offeringName: ComicBook
-  offeringDescription: it's a comic book
+  offeringDescription: They used to read...cartoons?
   offeringType: 2
   offeringObject: {fileID: 5127857763336517282, guid: 6609f6d8f6bb06646b4d7c9948ac4f38,
     type: 3}

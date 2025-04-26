@@ -23,5 +23,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SortingMinigame.unity
     guid: cbe1ac24b0a864b4b9d4eca152e5b592
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: aad5ad0ca4f7f5a4b8ce5503dee21638
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

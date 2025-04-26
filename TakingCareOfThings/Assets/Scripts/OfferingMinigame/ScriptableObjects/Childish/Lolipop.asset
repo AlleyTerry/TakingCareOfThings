@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Lolipop
   m_EditorClassIdentifier: 
   offeringName: Lolipop
-  offeringDescription: jar full of lolipops
+  offeringDescription: They always had a lolipop in his mouth...
   offeringType: 2
   offeringObject: {fileID: 919132149155446097, guid: d1000d19b0b5d124aa323a3e7d771d1c,
     type: 3}

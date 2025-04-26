@@ -201,7 +201,7 @@ public class RitualManager : MonoBehaviour
         }
         //show how many soul points you used
         timerText.text = "Ritual Completed! You were able to use used " + score + " soul points!";
-        
+        ScoreManager.instance.SkepticMeter -= 10;
         //instantiate explosion particle
         GameObject explosionObject = Instantiate(explisionEffectPrefab, buddyBody.transform.position, Quaternion.identity);
         explosionEffect = explosionObject.GetComponent<ParticleSystem>();

@@ -9,10 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0931e1e76f5a5b74aa581e7e98afb180, type: 3}
-  m_Name: ToyCar
+  m_Script: {fileID: 11500000, guid: 8ab57191a6c273c4f81e8e536afe78fd, type: 3}
+  m_Name: Fwen
   m_EditorClassIdentifier: 
-  offeringName: Toy Car
-  offeringDescription: red beaten toy car, well loved
-  offeringType: 2
-  offeringObject: {fileID: 0}
+  townsfolkName: Fwen
+  townsfolkDescription: 
+  townsfolkDialogue: Fwen
+  townsfolkPortrait: {fileID: 0}
+  hasBeenServed: 0
+  deadPersonType: 2
+  difficulty: 0

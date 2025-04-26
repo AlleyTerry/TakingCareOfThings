@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0931e1e76f5a5b74aa581e7e98afb180, type: 3}
-  m_Name: Racecar
+  m_Name: Train
   m_EditorClassIdentifier: 
-  offeringName: Racecar
-  offeringDescription: They collected a lot of childish things...I mean who plays
-    with cars anymore
+  offeringName: Train
+  offeringDescription: They really liked trains...
   offeringType: 2
-  offeringObject: {fileID: 919132149155446097, guid: ec99e1440bbc9d344af4061b4eac9a8f,
+  offeringObject: {fileID: 919132149155446097, guid: cdc467865cc719549bde03ab19c33dd3,
     type: 3}
   offeringBlurb: 

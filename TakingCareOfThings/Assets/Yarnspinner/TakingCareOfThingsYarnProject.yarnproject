@@ -5,7 +5,8 @@
     "Overworld.yarn",
     "OfferingMinigameTutorial.yarn",
     "SortingMinigame.yarn",
-    "RainInteractions.yarn"
+    "RainInteractions.yarn",
+    "Townsfolk.yarn"
   ],
   "excludeFiles": [
     "**/*~/*"

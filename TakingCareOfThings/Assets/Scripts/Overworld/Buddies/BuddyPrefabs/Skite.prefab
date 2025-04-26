@@ -51,8 +51,9 @@ MonoBehaviour:
   agent: {fileID: 6559043933554540826}
   destinationThreshold: 0.1
   foundWeed: 0
-  timer: 5
+  timer: 20
   CanvasManager: {fileID: 0}
+  isWalking: 1
 --- !u!195 &6559043933554540826
 NavMeshAgent:
   m_ObjectHideFlags: 0

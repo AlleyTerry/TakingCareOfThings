@@ -2,6 +2,7 @@
 tags:
 ---
 <<declare $firstTime = true>>
+<<declare $townsfolkName = "">>
 
 <<TruePause GameManager>>
 Sepp: We need to keep our skeptism down.
@@ -10,9 +11,10 @@ Sepp: We should have something to show for it.
 
 Narrator: us WASD to move. Open the grave camera by pressing TAB.
 Narrator: then click on the grave camera button!
+Narrator: Oh look here comes a patron now!
 Narrator: go make those graves!
-
-<<Unpause GameManager>>
+<<GetTownsfolk QuestManager>>
+<<jump {$townsfolkName}>>
 ===
 title: GraveTutorial
 tags:

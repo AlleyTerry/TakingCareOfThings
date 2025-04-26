@@ -49,7 +49,10 @@ public class OverworldManager : MonoBehaviour
     public UnityEvent GamePaused;
     public UnityEvent GameUnpaused;
     
-
+    public GameObject SkepticMeter;
+    public TextMeshProUGUI RitualQuestText;
+    public TextMeshProUGUI TownsfoldQuestText;
+    public GameObject tabGroup;
     public bool firstTimeRitualChoose = true;
     
     // Start is called before the first frame update
@@ -67,14 +70,29 @@ public class OverworldManager : MonoBehaviour
             ((BuddiesScriptables)buddy2).buddyHealth -= 3;
             ((BuddiesScriptables)buddy3).buddyHealth -= 3;
             ScoreManager.instance.newDayStarted = false;
+            //ScoreManager.instance.SkepticMeter -= 10;
             //set skybox to day
             //set lighting to normal
             RenderSettings.skybox = skyboxDay;
             sun.intensity = 1.0f;
         }
-      
-        
+        if (ScoreManager.instance.SkepticMeter >= 70 )
+        {
+            QuestManager.instance.NewDayQuests(1, 2);
+        }
+        else if (ScoreManager.instance.SkepticMeter >= 40 && ScoreManager.instance.SkepticMeter < 70)
+        {
+            QuestManager.instance.NewDayQuests(2, 3);
+        }
+        else if (ScoreManager.instance.SkepticMeter < 40)
+        {
+            QuestManager.instance.NewDayQuests(3, 4);
+        }
+        SkepticMeter.GetComponent<TextMeshProUGUI>().text = "Reputation: " + ScoreManager.instance.SkepticMeter;
+        RitualQuestText.text = "Rituals to do: " + QuestManager.instance.numberOfRituals;
+        TownsfoldQuestText.text = "Graves to make: " + QuestManager.instance.numberOfTownsfolk;
         SpawnWeeds();
+        tabGroup.SetActive(false);
 
     }
 
@@ -84,7 +102,7 @@ public class OverworldManager : MonoBehaviour
         
         for (int i = 0; i < 10; i++)
         {
-            //randomize the position of the weed without choosing the same position as another weed\
+            //randomize the position of the weed without choosing the same position as another weed
             Vector3 randomPosition = new Vector3(UnityEngine.Random.Range(-10, 10), -0.301f, UnityEngine.Random.Range(5, 17));
             while (randomPosition == new Vector3(UnityEngine.Random.Range(-10, 10), -0.301f, UnityEngine.Random.Range(5, 17)))
             {

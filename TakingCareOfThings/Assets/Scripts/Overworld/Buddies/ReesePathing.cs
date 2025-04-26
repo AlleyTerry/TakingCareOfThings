@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -13,6 +14,7 @@ public class ReesePathing : MonoBehaviour
     public float destinationThreshold = 0.1f;
     
     public bool foundGrave = false;
+    public bool isWalking = true;
     public float timer = 5f;
     
     public CanvasManager CanvasManager;
@@ -47,13 +49,15 @@ public class ReesePathing : MonoBehaviour
     void Update()
     {
         //if the agent is close to the destination, set foundGrave to true
-        if (agent.remainingDistance <= destinationThreshold)
+        if (agent.remainingDistance <= destinationThreshold && isWalking)
+     
         {
             Debug.Log("Found Grave");
             foundGrave = true;
         }
         if (foundGrave)
         {
+            
             //start the function of digging grave
             StartDigging();
         }
@@ -61,18 +65,24 @@ public class ReesePathing : MonoBehaviour
 
     public void StartDigging()
     {
+        isWalking = false;
         //play the digging animation
         //start a timer
-        timer -= Time.deltaTime;
+        if (foundGrave )
+        {
+            timer -= Time.deltaTime;
+        }
         //after the timer is done, set the grave to active
         if (timer <= 0)
         {
+            foundGrave = false;
             pickedGravePlot.SetActive(true);
             //set the choosen button name
             CanvasManager.chosenButton = pickedGravePlot.name;
-            foundGrave = false;
-            timer = 5f;
-            
+            ScoreManager.instance.SkepticMeter += 5;
+            GameObject.Find("SkepticMeter").GetComponentInChildren<TextMeshProUGUI>().text = "Reputation: " + ScoreManager.instance.SkepticMeter;
+            Debug.Log("reese added a point");
+
         }
     }
     

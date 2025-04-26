@@ -40,10 +40,10 @@ public class RainPathing : MonoBehaviour
         cam = GameObject.Find("FreeLook Camera").GetComponent<CinemachineFreeLook>();
         
         //find the points
-        Point1 = GameObject.Find("Point1").gameObject;
+        /*Point1 = GameObject.Find("Point1").gameObject;
         Point2 = GameObject.Find("Point2").gameObject;
         Point3 = GameObject.Find("Point3").gameObject;
-        Point4 = GameObject.Find("Point4").gameObject;
+        Point4 = GameObject.Find("Point4").gameObject;*/
         //set the destination to point 1
        // agent.SetDestination(Point1.transform.position);
         

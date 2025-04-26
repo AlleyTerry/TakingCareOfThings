@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -13,9 +14,10 @@ public class SkitePathing : MonoBehaviour
     public float destinationThreshold = 0.1f;
     
     public bool foundWeed = false;
-    public float timer = 5f;
+    public float timer = 20f;
     
-    public CanvasManager CanvasManager;
+   
+    public bool isWalking = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,7 +38,7 @@ public class SkitePathing : MonoBehaviour
     void Update()
     {
         //if the agent is close to the destination, set foundWeed to true
-        if (agent.remainingDistance <= destinationThreshold)
+        if (agent.remainingDistance <= destinationThreshold && isWalking)
         {
             Debug.Log("Found Weed");
             foundWeed = true;
@@ -51,9 +53,14 @@ public class SkitePathing : MonoBehaviour
 
     public void StartPicking()
     {
+        isWalking = false;
         //play weed picking animation
         //start timer
-        timer -= Time.deltaTime;
+        if (foundWeed)
+        {
+            timer = 20f;
+            timer -= Time.deltaTime;
+        }
         //if timer is less than 0, pick the weed
         if (timer <= 0)
         {
@@ -61,16 +68,20 @@ public class SkitePathing : MonoBehaviour
             weeds.Remove(pickedWeed);
             //destroy the weed
             Destroy(pickedWeed);
-            //set foundWeed to false
-            foundWeed = false;
+            ScoreManager.instance.SkepticMeter += 1;
+            //set the text to the new value
+            GameObject.Find("SkepticMeter").GetComponentInChildren<TextMeshProUGUI>().text = "Reputation: " + ScoreManager.instance.SkepticMeter;
+            Debug.Log("skite added a point");
             //reset timer
-            timer = 5f;
+            
             if (weeds.Count > 0)
             {
                 //pick a new weed
                 pickedWeed = weeds[Random.Range(0, weeds.Count)].gameObject;
                 //go to that weed
                 agent.SetDestination(pickedWeed.transform.position);
+                isWalking = true;
+                
             }
             else
             {

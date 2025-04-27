@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Yarn.Unity;
 public class HeadstoneSelect : MonoBehaviour
 {
     public List<ScriptableObject> headstones = new List<ScriptableObject>();
@@ -26,11 +27,18 @@ public class HeadstoneSelect : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+       
+    }
+    [YarnCommand("selectHeadstone")]
+    public void selectHeadstone()
+    {
         //choose a random headstone from the headstone list
-        choosenHeadstone = ((ChooseHeadstone) headstones[UnityEngine.Random.Range(0, headstones.Count)]).name;
+        // choosenHeadstone = ((ChooseHeadstone) headstones[UnityEngine.Random.Range(0, headstones.Count)]).name;
+        choosenHeadstone = QuestManager.instance.townsfolkChoosen.Headstone;
+
         Debug.Log(choosenHeadstone);
         orderText.text = choosenHeadstone;
-       
     }
 
     // Update is called once per frame

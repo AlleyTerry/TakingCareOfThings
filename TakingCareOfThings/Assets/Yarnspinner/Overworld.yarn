@@ -14,6 +14,7 @@ Narrator: then click on the grave camera button!
 Narrator: Oh look here comes a patron now!
 Narrator: go make those graves!
 <<GetTownsfolk QuestManager>>
+
 <<jump {$townsfolkName}>>
 ===
 title: GraveTutorial

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using Yarn.Unity;
 
 
 //coffin script
@@ -28,14 +29,19 @@ public class ItemSelect : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //choose a random grace from the grave list
-        choosenGrave = ((ChooseGrave) graves[UnityEngine.Random.Range(0, graves.Count)]).name;
-        Debug.Log(choosenGrave);
-        orderText.text = choosenGrave;
+        
 
 
     }
-
+    [YarnCommand("selectGraves")]
+    public void selectGraves()
+    {
+        //choose a grave based on choosen quest manager townsfolk
+        choosenGrave = QuestManager.instance.townsfolkChoosen.Grave;
+        //choosenGrave = ((ChooseGrave) graves[UnityEngine.Random.Range(0, graves.Count)]).name;
+        Debug.Log(choosenGrave);
+        orderText.text = choosenGrave;
+    }
     // Update is called once per frame
     void Update()
     {

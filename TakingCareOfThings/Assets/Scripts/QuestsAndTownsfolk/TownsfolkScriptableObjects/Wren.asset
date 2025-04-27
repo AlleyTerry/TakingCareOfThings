@@ -17,3 +17,9 @@ MonoBehaviour:
   townsfolkDialogue: Wren
   townsfolkPortrait: {fileID: 0}
   hasBeenServed: 0
+  deadPersonType: 0
+  difficulty: 0
+  Grave: RedGrave
+  Headstone: WhitePoint
+  Flower1: Roses
+  Flower2: Daisies

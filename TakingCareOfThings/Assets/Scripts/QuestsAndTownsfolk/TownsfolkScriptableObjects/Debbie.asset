@@ -19,3 +19,7 @@ MonoBehaviour:
   hasBeenServed: 0
   deadPersonType: 3
   difficulty: 0
+  Grave: RedGrave
+  Headstone: Round
+  Flower1: Roses
+  Flower2: Roses

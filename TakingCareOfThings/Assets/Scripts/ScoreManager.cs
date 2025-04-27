@@ -7,9 +7,9 @@ using Yarn.Unity;
 
 public class ScoreManager : MonoBehaviour
 {
-    
-    public static int score = 0;
     public static ScoreManager instance;
+    public static int score ;
+    
     public static String buddy;
     public bool newDayStarted = false;
     public bool firstTimeOverworld = true;
@@ -38,17 +38,17 @@ public class ScoreManager : MonoBehaviour
     
     public void Awake()
     {
-        if (instance == null )
+        if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
-
         }
         else
         {
             Destroy(this.gameObject);
-            Debug.Log("Duplicate ScoreManager destroyed.");
         }
+        
+      
     }
 
     // Start is called before the first frame update

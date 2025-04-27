@@ -37,11 +37,19 @@ public class FlowerSelect : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+       
+    }
+
+    [YarnCommand("selectflowers")]
+    public void selectflowers()
+    {
         //choose a random flower from the flower list
-        choosenFlower1 = ((ChooseFlowers) flowers[UnityEngine.Random.Range(0, flowers.Count)]).name;
+        //choosenFlower1 = ((ChooseFlowers) flowers[UnityEngine.Random.Range(0, flowers.Count)]).name;
+        choosenFlower1 = QuestManager.instance.townsfolkChoosen.Flower1;
         Debug.Log(choosenFlower1);
         orderText.text = choosenFlower1;
-        choosenFlower2 = ((ChooseFlowers) flowers[UnityEngine.Random.Range(0, flowers.Count)]).name;
+        //choosenFlower2 = ((ChooseFlowers) flowers[UnityEngine.Random.Range(0, flowers.Count)]).name;
+        choosenFlower2 = QuestManager.instance.townsfolkChoosen.Flower2;
         Debug.Log(choosenFlower2);
         orderText2.text = choosenFlower2;
     }

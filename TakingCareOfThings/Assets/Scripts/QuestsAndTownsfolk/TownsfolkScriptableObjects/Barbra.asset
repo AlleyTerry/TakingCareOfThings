@@ -17,3 +17,9 @@ MonoBehaviour:
   townsfolkDialogue: Barbra
   townsfolkPortrait: {fileID: 0}
   hasBeenServed: 0
+  deadPersonType: 0
+  difficulty: 0
+  Grave: BlackGrave
+  Headstone: Black
+  Flower1: Daisies
+  Flower2: Daisies

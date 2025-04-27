@@ -11,5 +11,5 @@ narrator: hover over the item to see what it is.
 narrator: but not all of them have descriptions, so use your best judgement...
 narrator: then press the done button.
 narrator: and hurry up would ya?
-<<startMinigame GameManager>>
+<<startMinigame OfferingGameManager>>
 ===

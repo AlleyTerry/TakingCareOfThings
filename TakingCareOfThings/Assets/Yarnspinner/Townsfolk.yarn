@@ -3,36 +3,54 @@ tags:
 ---
 Barbra: MY JONNY
 Barbra: HE'S GONEEEEEE
+<<selectGraves GraveMinigameManager>>
+<<selectHeadstone GraveMinigameManager>>
+<<selectflowers GraveMinigameManager>>
 ===
 title: Chrisa
 tags:
 ---
 Chrisa: MY APPLE
 Chrisa: HE'S GONEEEEEE
+<<selectGraves GraveMinigameManager>>
+<<selectHeadstone GraveMinigameManager>>
+<<selectflowers GraveMinigameManager>>
 ===
 title: Debbie
 tags:
 ---
 Debbie: MY MARK
 Debbie: HE'S GONEEEEEE
+<<selectGraves GraveMinigameManager>>
+<<selectHeadstone GraveMinigameManager>>
+<<selectflowers GraveMinigameManager>>
 ===
 title: Fwen
 tags:
 ---
 Fwen: MY POP
 Fwen: HE'S GONEEEEEE
+<<selectGraves GraveMinigameManager>>
+<<selectHeadstone GraveMinigameManager>>
+<<selectflowers GraveMinigameManager>>
 ===
 title: Jim
 tags:
 ---
 Jim: BUB
 Jim: HE'S GONEEEEEE
+<<selectGraves GraveMinigameManager>>
+<<selectHeadstone GraveMinigameManager>>
+<<selectflowers GraveMinigameManager>>
 ===
 title: Joan
 tags:
 ---
 Joan: MY GRIST
 Joan: HE'S GONEEEEEE
+<<selectGraves GraveMinigameManager>>
+<<selectHeadstone GraveMinigameManager>>
+<<selectflowers GraveMinigameManager>>
 ===
 title: Mayor
 tags:
@@ -41,12 +59,18 @@ Mayor: What...
 Mayor: What did you do...
 Sepp: My job dear mayor.
 Mayor: They are all gone...
+<<selectGraves GraveMinigameManager>>
+<<selectHeadstone GraveMinigameManager>>
+<<selectflowers GraveMinigameManager>>
 ===
 title: Nort
 tags:
 ---
 Nort: MY ERICA
 Nort: HE'S GONEEEEEE
+<<selectGraves GraveMinigameManager>>
+<<selectHeadstone GraveMinigameManager>>
+<<selectflowers GraveMinigameManager>>
 ===
 title: Sage
 tags:
@@ -54,11 +78,17 @@ tags:
 Sage: just... checking in...
 Sage: Oh yeah my uncles pet fish...
 Sage: oh nooooo
+<<selectGraves GraveMinigameManager>>
+<<selectHeadstone GraveMinigameManager>>
+<<selectflowers GraveMinigameManager>>
 ===
 title: Wren
 tags:
 ---
 Wren: MY BABY MY BABEYYYY
 Wren: HE'S GONEEEEEE
+<<selectGraves GraveMinigameManager>>
+<<selectHeadstone GraveMinigameManager>>
+<<selectflowers GraveMinigameManager>>
 ===
 

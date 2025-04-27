@@ -249,7 +249,7 @@ GameObject:
   - component: {fileID: 78217034}
   - component: {fileID: 78217033}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: OfferingGameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -775,6 +775,55 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 369771787}
   m_SourcePrefab: {fileID: 100100000, guid: 01ada187f4ec884449a2cfab362ef50c, type: 3}
+--- !u!1 &306562049
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 306562050}
+  - component: {fileID: 306562051}
+  m_Layer: 0
+  m_Name: QuestManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &306562050
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306562049}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &306562051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306562049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06623191eae2f584fb8ea5e71380f8b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  townsfolkList: []
+  numberOfTownsfolk: 0
+  numberOfRituals: 0
+  townsfolkChoosen: {fileID: 0}
+  townsfolkDialogue: 
 --- !u!1 &320970557
 GameObject:
   m_ObjectHideFlags: 0
@@ -1512,55 +1561,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2, y: -0.2, z: 0}
   m_LocalScale: {x: 0.48, y: 1, z: 0.59}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &568701516
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 568701518}
-  - component: {fileID: 568701517}
-  m_Layer: 0
-  m_Name: ScoreManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &568701517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 568701516}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 677c7082de5e63f4b85e48b11806e6e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  newDayStarted: 0
-  firstTimeOverworld: 1
-  firstTimeSorting: 1
-  firstTimeOffering: 1
-  SkepticMeter: 90
---- !u!4 &568701518
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 568701516}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2914,7 +2914,7 @@ MonoBehaviour:
   continueActionKeyCode: 13
   continueActionButtonName: Jump
   continueActionOnButtonRelease: 0
---- !u!1 &1726818864
+--- !u!1 &1752861837
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2922,39 +2922,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1726818866}
-  - component: {fileID: 1726818865}
+  - component: {fileID: 1752861838}
+  - component: {fileID: 1752861839}
   m_Layer: 0
-  m_Name: QuestManager
+  m_Name: ScoreManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1726818865
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1726818864}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06623191eae2f584fb8ea5e71380f8b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  townsfolkList: []
-  numberOfTownsfolk: 0
-  numberOfRituals: 0
-  townsfolkChoosen: {fileID: 0}
-  townsfolkDialogue: 
---- !u!4 &1726818866
+--- !u!4 &1752861838
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1726818864}
+  m_GameObject: {fileID: 1752861837}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -2963,6 +2946,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1752861839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752861837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 677c7082de5e63f4b85e48b11806e6e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newDayStarted: 0
+  firstTimeOverworld: 1
+  firstTimeSorting: 1
+  firstTimeOffering: 1
+  SkepticMeter: 90
 --- !u!1 &1776543054
 GameObject:
   m_ObjectHideFlags: 0
@@ -3932,7 +3932,6 @@ SceneRoots:
   - {fileID: 1110355563}
   - {fileID: 383394905}
   - {fileID: 623441967}
-  - {fileID: 568701518}
   - {fileID: 1903568286}
   - {fileID: 78217035}
   - {fileID: 336570438}
@@ -3940,4 +3939,5 @@ SceneRoots:
   - {fileID: 1590664767}
   - {fileID: 1207745264}
   - {fileID: 1050663914}
-  - {fileID: 1726818866}
+  - {fileID: 1752861838}
+  - {fileID: 306562050}

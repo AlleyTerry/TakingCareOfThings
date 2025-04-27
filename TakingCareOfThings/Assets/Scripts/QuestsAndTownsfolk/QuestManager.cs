@@ -17,13 +17,13 @@ public class QuestManager : MonoBehaviour
     /// and how many rituals you have to do in the day 
     /// </summary>
     // Start is called before the first frame update
-    public List<TownsfolkScriptable> townsfolkList;
-    public int numberOfTownsfolk;
-    public int numberOfRituals;
+    public  List<TownsfolkScriptable> townsfolkList;
+    public  int numberOfTownsfolk;
+    public  int numberOfRituals;
 
-    public TownsfolkScriptable townsfolkChoosen;
+    public  TownsfolkScriptable townsfolkChoosen;
 
-    public string townsfolkDialogue;
+    public  string townsfolkDialogue;
     //make this script an instance to be used in ScoreManager
     public static QuestManager instance;
     //yarnspinner variable set up
@@ -31,16 +31,14 @@ public class QuestManager : MonoBehaviour
     
     public void Awake()
     {
-        if (instance == null )
+        if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
-
         }
         else
         {
             Destroy(this.gameObject);
-            Debug.Log("Duplicate QuestManager destroyed.");
         }
     }
     void Start()
@@ -64,12 +62,7 @@ public class QuestManager : MonoBehaviour
             {
                 Debug.LogError("DialogueRunner not found in the scene.");
             }
-            
-            
-            
-            
         }
-        
     }
 
     // Update is called once per frame

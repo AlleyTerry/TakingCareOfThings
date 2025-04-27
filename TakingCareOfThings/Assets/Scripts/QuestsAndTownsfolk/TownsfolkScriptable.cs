@@ -20,10 +20,10 @@ public class TownsfolkScriptable : ScriptableObject
     public DeadPersonType deadPersonType;
     [SerializeField] public enum DeadPersonType
     {
-        outgoing,
-        homebody,
-        childish,
-        adventurous
+        Childish,
+        Homebody,
+        Outgoing,
+        Adventurous
     }
     public Difficulty difficulty;
     [SerializeField] public enum Difficulty
@@ -32,6 +32,11 @@ public class TownsfolkScriptable : ScriptableObject
         medium,
         hard
     }
+
+    public string Grave;
+    public string Headstone;
+    public string Flower1;
+    public string Flower2;
   
     // Start is called before the first frame update
     void Start()

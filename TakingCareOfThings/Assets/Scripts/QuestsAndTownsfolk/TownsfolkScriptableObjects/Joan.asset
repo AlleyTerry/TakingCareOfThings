@@ -19,3 +19,7 @@ MonoBehaviour:
   hasBeenServed: 0
   deadPersonType: 1
   difficulty: 0
+  Grave: BlueGrave
+  Headstone: Point
+  Flower1: Lillies
+  Flower2: Roses

@@ -57,9 +57,11 @@ public class OrganizingMinigame : MonoBehaviour
         
         DoneDoneButton.SetActive(false);
         //set the enum to a random value
-        randomPersonality = Random.Range(0, 4);
-        string personalityString = QuestManager.instance.townsfolkChoosen.deadPersonType.ToString();
-        personalityType = (PersonalityType)Enum.Parse(typeof(PersonalityType), personalityString);
+        //randomPersonality = Random.Range(0, 4);
+        //get the personality type from the quest manager
+       
+        string choosenPersonality = QuestManager.instance.townsfolkChoosen.deadPersonType.ToString();
+        personalityType = (PersonalityType)Enum.Parse(typeof(PersonalityType), choosenPersonality);
         //personalityType = (PersonalityType)randomPersonality;
         
         //ADD the blurbs based on the personality type
@@ -98,6 +100,13 @@ public class OrganizingMinigame : MonoBehaviour
         randomKey = blurbs.Values.ElementAt(randomNum);
         blurbText.text = randomKey;
         score.text = "SoulPoints: " + ScoreManager.score;
+
+        if (ScoreManager.instance.firstTimeOffering)
+        {
+            ScoreManager.instance.firstTimeOffering = false;
+            FindObjectOfType<DialogueRunner>().StartDialogue("MiniGameTutorial");
+
+        }
        
     }
 

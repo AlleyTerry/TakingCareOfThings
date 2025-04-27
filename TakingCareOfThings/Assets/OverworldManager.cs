@@ -61,7 +61,7 @@ public class OverworldManager : MonoBehaviour
        
         //instantiates the buddies
         buddy1Object = Instantiate(((BuddiesScriptables)buddy1).buddyObject, point1.position, Quaternion.identity);
-        buddy2Object = Instantiate(((BuddiesScriptables)buddy2).buddyObject, point2.position, Quaternion.identity);
+        buddy2Object = Instantiate(((BuddiesScriptables)buddy2).buddyObject, point2.position, Quaternion.Euler(0, 180, 0));
         buddy3Object = Instantiate(((BuddiesScriptables)buddy3).buddyObject, point3.position, Quaternion.identity);
         //take away health from scriptable object
         if (ScoreManager.instance.newDayStarted)

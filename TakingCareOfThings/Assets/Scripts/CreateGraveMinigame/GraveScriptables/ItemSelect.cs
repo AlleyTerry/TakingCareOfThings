@@ -24,8 +24,9 @@ public class ItemSelect : MonoBehaviour
 
     public Camera TopDownCamera;
     public String choosenGrave;
-    
+    public bool snapped = false;
     public List<Transform> snapPoints = new List<Transform>();
+    public float pickUpRange = 10f; // Range within which the player can pick up objects
     // Start is called before the first frame update
     void Start()
     {
@@ -52,15 +53,32 @@ public class ItemSelect : MonoBehaviour
                 return;
                 
             }
+
             
+            
+           
             //drop object
             if (newitem != null )
             {
+                if (snapped)
+                {
                     newitem.GetComponent<Rigidbody>().isKinematic = false;
                     newitem.transform.SetParent(null);
+                    snapped = false;
                     SnapToNearestPoint(newitem);
                     newitem.GetComponent<Rigidbody>().isKinematic = true;
-                    
+                }
+
+            }
+        }
+        
+        //if you press q it will delete the object
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            if (newitem != null)
+            {
+                Destroy(newitem.gameObject);
+                snapped = false;
             }
         }
     }
@@ -69,27 +87,31 @@ public class ItemSelect : MonoBehaviour
     //snap to the nearest snap point
     public void SnapToNearestPoint(GameObject item)
     {
-        Transform closestSnapPoint = null;
-        float closestDistance = Mathf.Infinity;
-        foreach (var snapPoint in snapPoints)
-        {
-            float distance = Vector3.Distance(item.transform.position, snapPoint.position);
-            if (distance < closestDistance)
-            {
-                closestDistance = distance;
-                closestSnapPoint = snapPoint;
-                //this child is the minigame picker trigger
-                snapPoint.GetChild(0).gameObject.SetActive(true);
-            }
-           
-        }
 
-        if (closestSnapPoint != null)
-        { 
-            item.transform.position = closestSnapPoint.position + new Vector3(0, 0.3f, 0);
-        }
+        
+            Transform closestSnapPoint = null;
+            float closestDistance = Mathf.Infinity;
+            foreach (var snapPoint in snapPoints)
+            {
+                float distance = Vector3.Distance(item.transform.position, snapPoint.position);
+                if (distance < closestDistance)
+                {
+                    closestDistance = distance;
+                    closestSnapPoint = snapPoint;
+                    //this child is the minigame picker trigger
+                    snapPoint.GetChild(0).gameObject.SetActive(true);
+                }
+           
+            }
+
+            if (closestSnapPoint != null)
+            { 
+                item.transform.position = closestSnapPoint.position + new Vector3(0, 0.3f, 0);
+            }
+        
     }
     
+    //put item on your mouse
     public void SelectItem()
     {
         buttonName = EventSystem.current.currentSelectedGameObject.name;
@@ -108,8 +130,10 @@ public class ItemSelect : MonoBehaviour
         
         newitem = null;
         newitem = Instantiate(item, parentItem.transform.position, Quaternion.identity);
+        //set the position of the item to the parent item and make it kinematic
         newitem.transform.SetParent(parentItem.transform);
         newitem.GetComponent<Rigidbody>().isKinematic = true;
+        snapped = true;
     }
 
     public void ToHeadstones()
@@ -132,4 +156,5 @@ public class ItemSelect : MonoBehaviour
         }
 
     }
+    
 }

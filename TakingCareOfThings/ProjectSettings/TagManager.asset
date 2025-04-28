@@ -13,6 +13,9 @@ TagManager:
   - stone
   - plastic
   - body
+  - Grave
+  - Headstone
+  - Flower
   layers:
   - Default
   - TransparentFX

@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 4685228959753630352}
   m_Layer: 0
   m_Name: PointHeadstone
-  m_TagString: Untagged
+  m_TagString: Headstone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

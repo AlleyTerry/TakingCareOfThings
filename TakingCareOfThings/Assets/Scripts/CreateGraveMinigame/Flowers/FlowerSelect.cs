@@ -34,6 +34,9 @@ public class FlowerSelect : MonoBehaviour
     public TMPro.TextMeshProUGUI orderText2;
 
     public bool firstTime = true;
+    
+    public GameObject flower1;
+    public GameObject flower2;
     // Start is called before the first frame update
     void Start()
     {
@@ -76,7 +79,22 @@ public class FlowerSelect : MonoBehaviour
                 newitem = null;
                 TallyUp1();
             }
+        }
+        //if you press q it will delete the object
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
             
+                if (flower1 != null && flower2 == null)
+                {
+                    Destroy(flower1);
+                }
+                else
+                {
+                    if (flower1 != null && flower2 != null)
+                    {
+                        Destroy(flower2);
+                    }
+                }
             
         }
     }
@@ -91,13 +109,37 @@ public class FlowerSelect : MonoBehaviour
             {
                 closestDistance = distance;
                 closestSnapPoint = snapPoint;
+                
             }
         }
 
+        
         if (closestSnapPoint != null)
-        { 
-            item.transform.position = closestSnapPoint.position + new Vector3(0, 0.5f, 0);
+        {
+
+            //if the snappoint does not have a child
+            if (closestSnapPoint.transform.GetChild(0) == null)
+            {
+                item.transform.position = closestSnapPoint.position + new Vector3(0, 0.5f, 0);
+
+            }
+            if (flower1 == null)
+            {
+                flower1 = newitem;
+                //make child of snappoint
+                flower1.transform.SetParent(closestSnapPoint);
+            }
+            else
+            {
+                flower2 = newitem;
+                //make child of snappoint
+                flower2.transform.SetParent(closestSnapPoint);
+            }
+            //disable the snap point
+            //closestSnapPoint.GetChild(0).gameObject.SetActive(false);
+            //snapPoints.Remove(closestSnapPoint);
         }
+ 
     }
     
     public void SelectItem()
@@ -117,7 +159,8 @@ public class FlowerSelect : MonoBehaviour
                     item = ((ChooseFlowers) stone).flowerObject;
                 }
             }
-        
+
+            
             newitem = null;
             newitem = Instantiate(item, parentItem.transform.position, Quaternion.identity);
             newitem.transform.SetParent(parentItem.transform);

@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -4653125471795122910}
   m_Layer: 0
   m_Name: RedGrave
-  m_TagString: Untagged
+  m_TagString: Grave
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

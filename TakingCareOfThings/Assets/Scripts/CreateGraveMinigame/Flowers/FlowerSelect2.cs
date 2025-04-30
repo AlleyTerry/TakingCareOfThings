@@ -6,8 +6,9 @@ using UnityEngine.EventSystems;
 using Yarn.Unity;
 
 
-public class FlowerSelect : MonoBehaviour
+public class FlowerSelect2 : MonoBehaviour
 {
+ 
     public List<ScriptableObject> flowers = new List<ScriptableObject>();
     public GameObject item;
     public float offset = 3f;
@@ -37,27 +38,14 @@ public class FlowerSelect : MonoBehaviour
     
     public GameObject flower1;
     public GameObject flower2;
-
-    public GameObject flowerButtons2;
+    public Transform closestSnapPoint = null;
     // Start is called before the first frame update
     void Start()
     {
        
     }
 
-    [YarnCommand("selectflowers")]
-    public void selectflowers()
-    {
-        //choose a random flower from the flower list
-        //choosenFlower1 = ((ChooseFlowers) flowers[UnityEngine.Random.Range(0, flowers.Count)]).name;
-        choosenFlower1 = QuestManager.instance.townsfolkChoosen.Flower1;
-        Debug.Log(choosenFlower1);
-        orderText.text = choosenFlower1;
-        //choosenFlower2 = ((ChooseFlowers) flowers[UnityEngine.Random.Range(0, flowers.Count)]).name;
-        choosenFlower2 = QuestManager.instance.townsfolkChoosen.Flower2;
-        Debug.Log(choosenFlower2);
-        orderText2.text = choosenFlower2;
-    }
+
 
     // Update is called once per frame
     void Update()
@@ -72,13 +60,13 @@ public class FlowerSelect : MonoBehaviour
             
             if (newitem != null )
             {
+
+                    SnapToNearestPoint(newitem);
+                    newitem.GetComponent<Rigidbody>().isKinematic = false;
+                    newitem.transform.SetParent(null);
+                    newitem.GetComponent<Rigidbody>().isKinematic = true;
+             
                 
-                newitem.GetComponent<Rigidbody>().isKinematic = false;
-                newitem.transform.SetParent(null);
-                SnapToNearestPoint(newitem);
-                newitem.GetComponent<Rigidbody>().isKinematic = true;
-                
-               
             }
         }
         //if you press q it will delete the object
@@ -140,17 +128,26 @@ public class FlowerSelect : MonoBehaviour
         newitem.transform.SetParent(parentItem.transform);
         newitem.GetComponent<Rigidbody>().isKinematic = true;
     }
-
-    public void ToFlower2()
+    public void ToEnd()
     {
         newitem = null;
-        TallyUp1();
+        TallyUp2();
+        //DoneButtion.SetActive(false);
         flowerButtons.SetActive(false);
-        flowerButtons2.SetActive(true);
+        backButton.SetActive(true);
+        orderButtions.SetActive(false);
+        
+        finalTxt.text ="You got " + ScoreManager.score + " soul points!";
+
+        if (firstTime)
+        {
+            //play the tutorial dialogue
+            FindObjectOfType<DialogueRunner>().StartDialogue("FlowerEnd");
+            firstTime = false;
+        }
+        
         
     }
-
-   
     public void TallyUp1()
     {
         if (buttonName == choosenFlower1 && flowerCount == 0)
@@ -174,5 +171,4 @@ public class FlowerSelect : MonoBehaviour
 
     }
     
- 
 }

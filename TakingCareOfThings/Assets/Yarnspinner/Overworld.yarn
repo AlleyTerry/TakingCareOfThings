@@ -64,6 +64,18 @@ Narrator: Your work is never done yet!
 Narrator: Walk up to Rain and press ENTER!
 Narrator: Choose a Minigame to do to extract more soul-
 Narrator: to gain more experience!
-Narrator: Whenever you are done for the day, Press R to end the day!
+Narrator: But remember that you need to do rituals to upkeep...
+Narrator: Your buddies! (coughAndYourselfcough)
+Narrator: You need soul points to do these rituals however.
+Narrator: 3 is all you need. Do minigames to get more soul points!
 
+===
+
+title: NotEnoughSoulPoints
+tags:
+---
+
+Narrator: uh oh! You don't have enough soul points!
+Narrator: play a minigame or make a grave to get some!
+<<CloseRitualBoard GameManager>>
 ===

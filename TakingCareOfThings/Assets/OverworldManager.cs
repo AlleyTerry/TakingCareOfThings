@@ -147,6 +147,11 @@ public class OverworldManager : MonoBehaviour
      
         
     }
+    [YarnCommand("CloseRitualBoard")]
+    public void CloseRitualBoard()
+    {
+        Back();
+    }
 
     public void SoulPointsUpdate()
     {
@@ -172,14 +177,24 @@ public class OverworldManager : MonoBehaviour
 
     public void GoToRitual()
     {
-        //set the name of the buddy choosen in score manager based off the button pressed
-        //go to the ritual scene
-        choosenBuddyButton = EventSystem.current.currentSelectedGameObject.name;
-        ScoreManager.buddy = choosenBuddyButton;
-        Debug.Log(choosenBuddyButton);
-        yesNoButton.SetActive(true);
-        BuddyChooseButtons.SetActive(false);
-        //SceneManager.LoadScene("Ritual");
+        if (ScoreManager.score >= 3)
+        {
+            //set the name of the buddy choosen in score manager based off the button pressed
+            //go to the ritual scene
+            ScoreManager.score -= 3;
+            choosenBuddyButton = EventSystem.current.currentSelectedGameObject.name;
+            ScoreManager.buddy = choosenBuddyButton;
+            Debug.Log(choosenBuddyButton);
+            yesNoButton.SetActive(true);
+            BuddyChooseButtons.SetActive(false);
+            //SceneManager.LoadScene("Ritual");
+        }
+        else
+        {
+            //if the player does not have enough soul points to do the ritual
+            //play a dialogue that says they need more soul points
+            FindObjectOfType<DialogueRunner>().StartDialogue("NotEnoughSoulPoints");
+        }
 
     }
     

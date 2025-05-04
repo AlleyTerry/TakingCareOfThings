@@ -129,6 +129,7 @@ public class OrganizingMinigame : MonoBehaviour
             timerStarted = false;
             blurbText.text = "Times up!";
             //return to main game
+            ScoreManager.score += 1;
             ReturnButton.SetActive(true);
             NextNextButton.SetActive(false);
             DoneDoneButton.SetActive(false);
@@ -169,7 +170,7 @@ public class OrganizingMinigame : MonoBehaviour
         if (itemKey == randomKey)
         {
             blurbText.text = "Correct!";
-            ScoreManager.score += 1;
+            
             score.text = "SoulPoints: " + ScoreManager.score;
             //instantiate the a particle effect on the object
             GameObject explosionObject = Instantiate(explosionffectPrefab, offeringObject.transform.position, Quaternion.identity);
@@ -181,6 +182,7 @@ public class OrganizingMinigame : MonoBehaviour
         else
         {
             blurbText.text = "Incorrect!";
+            ScoreManager.instance.SkepticMeter -= 5;
         }
         //remove the blurb from the dictionary
         

@@ -149,7 +149,7 @@ public class ItemSelect : MonoBehaviour
     {
         if (buttonName == choosenGrave)
         {
-            ScoreManager.score += 1;
+            //ScoreManager.score += 1;
             score.text = "SoulPoints: " + ScoreManager.score;
             Debug.Log(ScoreManager.score);
             

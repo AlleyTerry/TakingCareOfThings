@@ -34,11 +34,9 @@ public class FlowerSelect : MonoBehaviour
     public TMPro.TextMeshProUGUI orderText2;
 
     public bool firstTime = true;
-    
-    public GameObject flower1;
-    public GameObject flower2;
 
-    public GameObject flowerButtons2;
+    public GameObject toFlowers2;
+    public GameObject EndButtons;
     // Start is called before the first frame update
     void Start()
     {
@@ -77,25 +75,9 @@ public class FlowerSelect : MonoBehaviour
                 newitem.transform.SetParent(null);
                 SnapToNearestPoint(newitem);
                 newitem.GetComponent<Rigidbody>().isKinematic = true;
-                
-               
+                //secondFlower = newitem;
             }
-        }
-        //if you press q it will delete the object
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
             
-                if (flower1 != null && flower2 == null)
-                {
-                    Destroy(flower1);
-                }
-                else
-                {
-                    if (flower1 != null && flower2 != null)
-                    {
-                        Destroy(flower2);
-                    }
-                }
             
         }
     }
@@ -121,58 +103,38 @@ public class FlowerSelect : MonoBehaviour
     
     public void SelectItem()
     {
-        buttonName = EventSystem.current.currentSelectedGameObject.name;
-        if (newitem != null)
+        if (flowerCount <= 1)
         {
-            Destroy(newitem.gameObject);
-        }
-
-        foreach (var stone in flowers)
-        {
-            if (stone.name == buttonName)
+            buttonName = EventSystem.current.currentSelectedGameObject.name;
+            if (newitem != null )
             {
-                item = ((ChooseFlowers) stone).flowerObject;
+                Destroy(newitem.gameObject);
             }
-        }
-        
-        newitem = null;
-        newitem = Instantiate(item, parentItem.transform.position, Quaternion.identity);
-        newitem.transform.SetParent(parentItem.transform);
-        newitem.GetComponent<Rigidbody>().isKinematic = true;
-    }
 
-    public void ToFlower2()
-    {
-        newitem = null;
-        TallyUp1();
-        flowerButtons.SetActive(false);
-        flowerButtons2.SetActive(true);
+            foreach (var stone in flowers)
+            {
+                if (stone.name == buttonName)
+                {
+                    item = ((ChooseFlowers) stone).flowerObject;
+                }
+            }
         
-    }
-
-   
-    public void TallyUp1()
-    {
-        if (buttonName == choosenFlower1 && flowerCount == 0)
-        {
-            ScoreManager.score += 1;
-            Debug.Log(ScoreManager.score);
-            flowerCount += 1;
+            newitem = null;
+            newitem = Instantiate(item, parentItem.transform.position, Quaternion.identity);
+            newitem.transform.SetParent(parentItem.transform);
+            newitem.GetComponent<Rigidbody>().isKinematic = true;
             
         }
-
     }
-    
-    public void TallyUp2()
+
+    public void ToSecondFlower()
     {
-        if (buttonName == choosenFlower2 )
-        {
-            ScoreManager.score += 1;
-            Debug.Log(ScoreManager.score);
-            //ToEnd();
-        }
-
+        flowerButtons.SetActive(false);
+        toFlowers2.SetActive(false);
+        EndButtons.SetActive(true);
+        
     }
+
     
  
 }

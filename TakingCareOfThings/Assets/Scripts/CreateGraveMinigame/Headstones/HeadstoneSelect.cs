@@ -117,7 +117,7 @@ public class HeadstoneSelect : MonoBehaviour
     {
         if (buttonName == choosenHeadstone)
         {
-            ScoreManager.score += 1;
+           // ScoreManager.score += 1;
             score.text = "SoulPoints: " + ScoreManager.score;
             Debug.Log(ScoreManager.score);
         }

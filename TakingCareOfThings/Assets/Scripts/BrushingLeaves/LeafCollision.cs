@@ -46,7 +46,7 @@ public class LeafCollision : MonoBehaviour
         if (leafOnStone == 0 && leafsOnStone)   
         {
             leafsOnStone = false;
-            ScoreManager.score += 1;
+            ScoreManager.instance.score += 1;
             brush.SetActive(false);
             //Debug.Log("no more leaves on stone!");
             FillHoleGame();
@@ -77,15 +77,7 @@ public class LeafCollision : MonoBehaviour
         if (crackNumber == 0 && fillHole)
         {
             fillHole = false;
-            ScoreManager.score += 1;
-            //polish = true;
-            PolishGame();
-            //EndGame();
-        }
-        if (stoneNumber == 0 && polish)
-        {
-            polish = false;
-            ScoreManager.score += 1;
+            ScoreManager.instance.score += 1;
             EndGame();
         }
         
@@ -181,7 +173,7 @@ public class LeafCollision : MonoBehaviour
     public void EndGame()
     {
         ReturnButton.SetActive(true);
-        text.text = "All clean! soul points: " + ScoreManager.score;
+        text.text = "All clean! soul points: " + ScoreManager.instance.score;
     }
     
 }

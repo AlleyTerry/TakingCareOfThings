@@ -131,7 +131,7 @@ public class FlowerSelect2 : MonoBehaviour
     public void ToEnd()
     {
         newitem = null;
-        ScoreManager.score += 1;
+        ScoreManager.instance.score += 1;
         //DoneButtion.SetActive(false);
         flowerButtons.SetActive(false);
         backButton.SetActive(true);

@@ -177,11 +177,11 @@ public class OverworldManager : MonoBehaviour
 
     public void GoToRitual()
     {
-        if (ScoreManager.score >= 3)
+        if (ScoreManager.instance.score >= 3)
         {
             //set the name of the buddy choosen in score manager based off the button pressed
             //go to the ritual scene
-            ScoreManager.score -= 3;
+            ScoreManager.instance.score -= 3;
             choosenBuddyButton = EventSystem.current.currentSelectedGameObject.name;
             ScoreManager.buddy = choosenBuddyButton;
             Debug.Log(choosenBuddyButton);

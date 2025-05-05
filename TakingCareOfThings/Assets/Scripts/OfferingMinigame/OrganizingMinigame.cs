@@ -99,7 +99,7 @@ public class OrganizingMinigame : MonoBehaviour
         //print(randomNum);
         randomKey = blurbs.Values.ElementAt(randomNum);
         blurbText.text = randomKey;
-        score.text = "SoulPoints: " + ScoreManager.score;
+        score.text = "SoulPoints: " + ScoreManager.instance.score;
 
         if (ScoreManager.instance.firstTimeOffering)
         {
@@ -129,7 +129,7 @@ public class OrganizingMinigame : MonoBehaviour
             timerStarted = false;
             blurbText.text = "Times up!";
             //return to main game
-            ScoreManager.score += 1;
+            ScoreManager.instance.score += 1;
             ReturnButton.SetActive(true);
             NextNextButton.SetActive(false);
             DoneDoneButton.SetActive(false);
@@ -171,7 +171,7 @@ public class OrganizingMinigame : MonoBehaviour
         {
             blurbText.text = "Correct!";
             
-            score.text = "SoulPoints: " + ScoreManager.score;
+            score.text = "SoulPoints: " + ScoreManager.instance.score;
             //instantiate the a particle effect on the object
             GameObject explosionObject = Instantiate(explosionffectPrefab, offeringObject.transform.position, Quaternion.identity);
             explosionEffect = explosionObject.GetComponent<ParticleSystem>();

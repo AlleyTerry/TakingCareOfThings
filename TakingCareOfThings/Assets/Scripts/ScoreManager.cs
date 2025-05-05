@@ -8,7 +8,7 @@ using Yarn.Unity;
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager instance;
-    public static int score ;
+    public int score ;
     
     public static String buddy;
     public bool newDayStarted = false;

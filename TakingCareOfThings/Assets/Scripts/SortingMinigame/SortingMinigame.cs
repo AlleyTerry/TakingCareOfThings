@@ -36,7 +36,7 @@ public class SortingMinigame : MonoBehaviour
         if (other.gameObject.tag == this.tag)
         {
             Debug.Log("correct bin!");
-            ScoreManager.score += 1;
+            ScoreManager.instance.score += 1;
             //play explosion effect
             GameObject explosionObject = Instantiate(explosionffectPrefabCorrect, other.transform.position, Quaternion.identity);
             explosionEffect = explosionObject.GetComponent<ParticleSystem>();
@@ -44,7 +44,7 @@ public class SortingMinigame : MonoBehaviour
             Destroy(explosionObject.gameObject, 2f);
             //destroy object
             Destroy(other.gameObject);
-            score.text = "SoulPoints: " + ScoreManager.score;
+            score.text = "SoulPoints: " + ScoreManager.instance.score;
             //get sorting objects list
             SortingObjectsList sortingObjectsList = sortingObjectManager.GetComponent<SortingObjectsList>();
             if (sortingObjectsList.SortoObjects != null)

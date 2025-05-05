@@ -43,7 +43,7 @@ public class RitualManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        score = ScoreManager.score;
+        score = ScoreManager.instance.score;
         print(score);
         print(ScoreManager.buddy);
         //set buddy to the scriptable object of the buddy in the score manager
@@ -171,7 +171,7 @@ public class RitualManager : MonoBehaviour
                     {
                         Debug.Log("wrong");
                         score--;
-                        ScoreManager.score--;
+                        ScoreManager.instance.score--;
 
                     }
                 
@@ -195,12 +195,12 @@ public class RitualManager : MonoBehaviour
         {
             ((BuddiesScriptables)buddy).buddyHealth += 1;
             //take away the soul points from the player
-            ScoreManager.score -= 1;
+           // ScoreManager.instance.score -= 1;
             usedSoulPoints += 1;
                     
         }
         //show how many soul points you used
-        timerText.text = "Ritual Completed! You were able to use used " + score + " soul points!";
+        timerText.text = "Ritual Completed!";
         ScoreManager.instance.SkepticMeter -= 20;
         //instantiate explosion particle
         GameObject explosionObject = Instantiate(explisionEffectPrefab, buddyBody.transform.position, Quaternion.identity);

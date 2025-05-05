@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flowerName: lilies
   flowerDescription: pure white lilies
-  flowerObject: {fileID: 7058767548041815480, guid: 4605cb60176fc1543b38065974486ac5,
+  flowerObject: {fileID: 7024834389083860926, guid: 5156b6342858cc043a4f2f5683be8bb1,
     type: 3}
   flowerType: 2

@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flowerName: roses
   flowerDescription: blood red roses
-  flowerObject: {fileID: 2424862397607213691, guid: d8983ef7d6feb4042b76aa3dba9d2b03,
+  flowerObject: {fileID: 119907411330516023, guid: 2bc67c2208333a64fbf99ff7f1dbaebb,
     type: 3}
   flowerType: 0

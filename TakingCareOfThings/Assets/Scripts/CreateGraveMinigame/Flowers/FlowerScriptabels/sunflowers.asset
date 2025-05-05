@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flowerName: sunflowers
   flowerDescription: bright yellow sunflowers, how do they grow here?
-  flowerObject: {fileID: 1819559343391990599, guid: 031ea29426106724f80ece4eb4354450,
+  flowerObject: {fileID: 1206638066762857017, guid: 2cc5cdea9d676ae4a820bce01a395931,
     type: 3}
   flowerType: 3

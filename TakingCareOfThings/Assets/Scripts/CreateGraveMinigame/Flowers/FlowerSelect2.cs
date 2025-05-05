@@ -103,7 +103,7 @@ public class FlowerSelect2 : MonoBehaviour
 
         if (closestSnapPoint != null)
         { 
-            item.transform.position = closestSnapPoint.position + new Vector3(0, 0.5f, 0);
+            item.transform.position = closestSnapPoint.position + new Vector3(0, 0.0f, 0);
         }
     }
     
